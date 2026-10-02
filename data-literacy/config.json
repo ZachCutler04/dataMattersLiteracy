@@ -1,0 +1,814 @@
+{
+  "$schema": "https://raw.githubusercontent.com/revisit-studies/study/v2.4.4/src/parser/StudyConfigSchema.json",
+  "studyMetadata": {
+    "title": "Data Literacy Study",
+    "version": "pilot",
+    "authors": ["The reVISit Team"],
+    "date": "2023-04-14",
+    "description": "A study of visualization critique, drawing, and data-literacy assessment tasks.",
+    "organizations": ["University of Utah"]
+  },
+  "uiConfig": {
+    "contactEmail": "researcher@university.edu",
+    "logoPath": "revisitAssets/revisitLogoSquare.svg",
+    "withProgressBar": true,
+    "autoDownloadStudy": false,
+    "withSidebar": true,
+    "windowEventDebounceTime": 200,
+    "participantNameField": "introduction.prolificId",
+    "studyEndMsg": "Thank you for completing the study.",
+    "urlParticipantIdParam": "PROLIFIC_PID",
+    "recordAudio": true,
+    "showTitleBar": false,
+    "sidebarWidth": 250
+  },
+  "importedLibraries": ["mic-check", "mini-vlat", "calvi"],
+  "components": {
+    "introduction": {
+      "type": "markdown",
+      "forceTouchScreen": false,
+      "recordAudio": false,
+      "path": "data-literacy/assets/introduction.md",
+      "response": [
+        {
+          "id": "prolificId",
+          "prompt": "Please enter your Prolific ID",
+          "location": "belowStimulus",
+          "type": "shortText",
+          "placeholder": "Prolific ID",
+          "paramCapture": "PROLIFIC_PID"
+        }
+      ]
+    },
+    "consent": {
+      "type": "markdown",
+      "recordAudio": false,
+      "path": "data-literacy/assets/consent.md",
+      "nextButtonText": "Agree",
+      "response": [
+        {
+          "id": "accept",
+          "prompt": "Do you consent to the study and wish to continue?",
+          "requiredValue": "Accept",
+          "location": "belowStimulus",
+          "type": "radio",
+          "options": ["Decline", "Accept"]
+        }
+      ]
+    },
+    "datasetInterest": {
+      "type": "questionnaire",
+      "recordAudio": false,
+      "description": "Participant's preferred topic for future data visualizations.",
+      "response": [
+        {
+          "id": "preferredDatasetTopic",
+          "type": "radio",
+          "required": true,
+          "prompt": "Which topic would you be most interested in exploring through data visualizations?",
+          "options": [
+            "Sports",
+            "History",
+            "Art and culture",
+            "Music",
+            "Movies and television",
+            "Science and space",
+            "Environment and climate",
+            "Health and medicine",
+            "Technology and video games",
+            "Food and travel"
+          ]
+        }
+      ]
+    },
+    "critiqueIntro": {
+      "type": "markdown",
+      "recordAudio": false,
+      "path": "data-literacy/assets/critiqueIntro.md",
+      "response": []
+    },
+    "vlatIntro": {
+      "type": "markdown",
+      "recordAudio": false,
+      "path": "data-literacy/assets/vlatIntro.md",
+      "response": []
+    },
+    "drawingIntro": {
+      "type": "markdown",
+      "recordAudio": false,
+      "path": "data-literacy/assets/drawingIntro.md",
+      "response": []
+    },
+    "critiqueFollowup": {
+      "type": "image",
+      "nextButtonLocation": "sidebar",
+      "description": "Question that asks users to count the number of bars that have a value greater than 1.",
+      "path": "data-literacy/assets/critiqueTasks/T40.jpg",
+      "response": [
+        {
+          "id": "response",
+          "type": "radio",
+          "location": "sidebar",
+          "required": true,
+          "prompt": "Have you finished critiquing the visualization?",
+          "options": ["Yes"],
+          "requiredValue": "Yes"
+        }
+      ]
+    },
+    "critiqueCalvi1": {
+      "type": "image",
+      "nextButtonLocation": "sidebar",
+      "style": {
+        "maxHeight": "100%"
+      },
+      "description": "Question that asks users to count the number of bars that have a value greater than 1.",
+      "instruction": "First, please <b>speak out loud</b> to describe what you are thinking as you look at the chart and make sense of it. \n\n While doing so, please apply your own knowledge and experiences to the chart in order to better understand it. \n\n  Next, Please critique the following visualization. \n\n Please discuss any aspects of the visualization you like or dislike, and describe your reasoning. Finally, provide and any suggestions you have for improvement.",
+      "path": "data-literacy/assets/critiqueTasks/T40.jpg",
+      "response": [
+        {
+          "id": "drawing100m",
+          "type": "radio",
+          "location": "sidebar",
+          "required": true,
+          "prompt": "Have you finished critiquing the visualization?",
+          "options": ["Yes"],
+          "requiredValue": "Yes"
+        }
+      ]
+    },
+    "critiqueCalvi2": {
+      "type": "image",
+      "nextButtonLocation": "sidebar",
+      "style": {
+        "maxHeight": "100%"
+      },
+      "description": "Question that asks users to count the number of bars that have a value greater than 1.",
+      "instruction": "First, please <b>speak out loud</b> to describe what you are thinking as you look at the chart and make sense of it. \n\n While doing so, please apply your own knowledge and experiences to the chart in order to better understand it. \n\n  Next, Please critique the following visualization. \n\n Please discuss any aspects of the visualization you like or dislike, and describe your reasoning. Finally, provide and any suggestions you have for improvement.",
+      "path": "https://raw.githubusercontent.com/visdesignlab/visLiteracyStudy/5c4d6505c586ed0f1cd70d849b7367ccb619db2e/public/literacyProlific/assets/critiqueTasks/T2.png",
+      "response": [
+        {
+          "id": "drawing100m",
+          "type": "radio",
+          "location": "sidebar",
+          "required": true,
+          "prompt": "Have you finished critiquing the visualization?",
+          "options": ["Yes"],
+          "requiredValue": "Yes"
+        }
+      ]
+    },
+    "critiqueUntimelyDeath": {
+      "type": "image",
+      "withProgressBar": true,
+      "style": {
+        "maxHeight": "100%"
+      },
+      "nextButtonLocation": "sidebar",
+      "description": "Question that asks users to count the number of bars that have a value greater than 1.",
+      "instruction": "First, please <b>speak out loud</b> to describe what you are thinking as you look at the chart and make sense of it. \n\n While doing so, please apply your own knowledge and experiences to the chart in order to better understand it. \n\n  Next, Please critique the following visualization. \n\n Please discuss any aspects of the visualization you like or dislike, and describe your reasoning. Finally, provide and any suggestions you have for improvement.",
+      "path": "https://raw.githubusercontent.com/visdesignlab/visLiteracyStudy/5c4d6505c586ed0f1cd70d849b7367ccb619db2e/public/literacyProlific/assets/critiqueTasks/untimelyDeath.png",
+      "response": [
+        {
+          "id": "drawing100m",
+          "type": "radio",
+          "location": "sidebar",
+          "required": true,
+          "prompt": "Have you finished critiquing the visualization?",
+          "options": ["Yes"],
+          "requiredValue": "Yes"
+        }
+      ]
+    },
+    "critiqueSciArticles": {
+      "type": "image",
+      "withProgressBar": true,
+      "style": {
+        "maxHeight": "100%"
+      },
+      "nextButtonLocation": "sidebar",
+      "description": "Question that asks users to count the number of bars that have a value greater than 1.",
+      "instruction": "First, please <b>speak out loud</b> to describe what you are thinking as you look at the chart and make sense of it. \n\n While doing so, please apply your own knowledge and experiences to the chart in order to better understand it. \n\n  Next, Please critique the following visualization. \n\n Please discuss any aspects of the visualization you like or dislike, and describe your reasoning. Finally, provide and any suggestions you have for improvement.",
+      "path": "https://raw.githubusercontent.com/visdesignlab/visLiteracyStudy/5c4d6505c586ed0f1cd70d849b7367ccb619db2e/public/literacyProlific/assets/critiqueTasks/sciArticles.png",
+      "response": [
+        {
+          "id": "drawing100m",
+          "type": "radio",
+          "location": "sidebar",
+          "required": true,
+          "prompt": "Have you finished critiquing the visualization?",
+          "options": ["Yes"],
+          "requiredValue": "Yes"
+        }
+      ]
+    },
+    "drawingFollowUpTree": {
+      "type": "react-component",
+      "nextButtonLocation": "sidebar",
+      "description": "Question that asks users to count the number of bars that have a value greater than 1.",
+      "instruction": "Please briefly critique the visualization you just drew by <b>speaking out loud</b>. Is there anything you would change with your drawing? ",
+      "path": "data-literacy/assets/Canvas.tsx",
+      "parameters": {
+        "responseId": "drawingTree"
+      },
+      "response": [
+        {
+          "id": "drawing100m",
+          "type": "likert",
+          "location": "sidebar",
+          "required": true,
+          "prompt": "Rate your sketch",
+          "numItems": 5
+        }
+      ]
+    },
+    "drawingFollowUpBpm": {
+      "type": "react-component",
+      "nextButtonLocation": "sidebar",
+      "description": "Question that asks users to count the number of bars that have a value greater than 1.",
+      "instruction": "Please briefly critique the visualization you just drew by <b>speaking out loud</b>. Is there anything you would change with your drawing? ",
+      "path": "data-literacy/assets/Canvas.tsx",
+      "parameters": {
+        "responseId": "drawingBpm"
+      },
+      "response": [
+        {
+          "id": "drawing100m",
+          "type": "likert",
+          "location": "sidebar",
+          "required": true,
+          "prompt": "Rate your sketch",
+          "numItems": 5
+        }
+      ]
+    },
+    "drawingFollowUp100M": {
+      "type": "react-component",
+      "nextButtonLocation": "sidebar",
+      "description": "Question that asks users to count the number of bars that have a value greater than 1.",
+      "instruction": "Please briefly critique the visualization you just drew by <b>speaking out loud</b>. Is there anything you would change with your drawing? ",
+      "path": "data-literacy/assets/Canvas.tsx",
+      "parameters": {
+        "responseId": "drawing100m"
+      },
+      "response": [
+        {
+          "id": "drawing100m",
+          "type": "likert",
+          "location": "sidebar",
+          "required": true,
+          "prompt": "Rate your sketch",
+          "numItems": 5
+        }
+      ]
+    },
+    "drawingFollowUpRanking": {
+      "type": "react-component",
+      "nextButtonLocation": "sidebar",
+      "description": "Question that asks users to count the number of bars that have a value greater than 1.",
+      "instruction": "Please briefly critique the visualization you just drew by <b>speaking out loud</b>. Is there anything you would change with your drawing? ",
+      "path": "data-literacy/assets/Canvas.tsx",
+      "parameters": {
+        "responseId": "drawingRanking"
+      },
+      "response": [
+        {
+          "id": "drawing100m",
+          "type": "likert",
+          "location": "sidebar",
+          "required": true,
+          "prompt": "Rate your sketch",
+          "numItems": 5
+        }
+      ]
+    },
+    "drawingFollowUpNetwork": {
+      "type": "react-component",
+      "nextButtonLocation": "sidebar",
+      "description": "Question that asks users to count the number of bars that have a value greater than 1.",
+      "instruction": "Please briefly critique the visualization you just drew by <b>speaking out loud</b>. Is there anything you would change with your drawing? ",
+      "path": "data-literacy/assets/Canvas.tsx",
+      "parameters": {
+        "responseId": "drawingNetwork"
+      },
+      "response": [
+        {
+          "id": "drawing100m",
+          "type": "likert",
+          "location": "sidebar",
+          "required": true,
+          "prompt": "Rate your sketch",
+          "numItems": 5
+        }
+      ]
+    },
+    "drawingFollowUpRainfall": {
+      "type": "react-component",
+      "nextButtonLocation": "sidebar",
+      "description": "Question that asks users to count the number of bars that have a value greater than 1.",
+      "instruction": "Please briefly critique the visualization you just drew by <b>speaking out loud</b>. Is there anything you would change with your drawing? ",
+      "path": "data-literacy/assets/Canvas.tsx",
+      "parameters": {
+        "responseId": "drawingRainfall"
+      },
+      "response": [
+        {
+          "id": "drawing100m",
+          "type": "likert",
+          "location": "sidebar",
+          "required": true,
+          "prompt": "Rate your sketch",
+          "numItems": 5
+        }
+      ]
+    },
+    "drawingTree": {
+      "type": "react-component",
+      "nextButtonLocation": "sidebar",
+      "description": "Question that asks users to count the number of bars that have a value greater than 1.",
+      "instructionPath": "data-literacy/assets/drawingTasks/treeInstructions.md",
+      "path": "data-literacy/assets/Canvas.tsx",
+      "showTimer": true,
+      "parameters": {
+        "responseId": "drawingTree"
+      },
+      "response": [
+        {
+          "id": "drawing100m",
+          "type": "radio",
+          "location": "sidebar",
+          "required": true,
+          "prompt": "Have you finished drawing your visualization?",
+          "options": ["Yes"],
+          "requiredValue": "Yes"
+        }
+      ]
+    },
+    "drawingTraining": {
+      "type": "react-component",
+      "nextButtonLocation": "sidebar",
+      "path": "data-literacy/assets/Canvas.tsx",
+      "recordAudio": false,
+      "showTimer": true,
+      "description": "Question that asks users to count the number of bars that have a value greater than 1.",
+      "instruction": "To the right, there is a drawing interface with a few options. \n\n At the top of the canvas, you can change between a pencil and an eraser, change the size of your pencil, and change the color of your pencil. Below the options is a blank canvas for you to draw on. \n\n Feel free to practice using the drawing interface now, and when you feel comfortable, click the next button to begin the drawing tasks.",
+      "response": [
+        {
+          "id": "drawing100m",
+          "type": "radio",
+          "location": "sidebar",
+          "required": true,
+          "prompt": "Are you ready to begin?",
+          "options": ["Yes"],
+          "requiredValue": "Yes"
+        }
+      ]
+    },
+    "drawingNetwork": {
+      "type": "react-component",
+      "nextButtonLocation": "sidebar",
+      "description": "Question that asks users to count the number of bars that have a value greater than 1.",
+      "instruction": "Below is a list of authors, how many papers each author has published, and how many papers author pairs have published together. \n\n ![demo](https://raw.githubusercontent.com/visdesignlab/visLiteracyStudy/5c4d6505c586ed0f1cd70d849b7367ccb619db2e/public/literacyProlific/assets/drawingTasks/networkTask.png) \n\n  Sketch a visualization that you believe best represents this data. \n\n While doing so, <b>please speak out loud</b> to explain your thought process or any challenges you face. \n\n We suggest spending no more than 7 minutes on this task.",
+      "path": "data-literacy/assets/Canvas.tsx",
+      "showTimer": true,
+      "parameters": {
+        "responseId": "drawingNetwork"
+      },
+      "response": [
+        {
+          "id": "drawing100m",
+          "type": "radio",
+          "location": "sidebar",
+          "required": true,
+          "prompt": "Have you finished drawing your visualization?",
+          "options": ["Yes"],
+          "requiredValue": "Yes"
+        }
+      ]
+    },
+    "drawingBpm": {
+      "type": "react-component",
+      "nextButtonLocation": "sidebar",
+      "description": "Question that asks users to count the number of bars that have a value greater than 1.",
+      "instructionPath": "data-literacy/assets/drawingTasks/bpmInstructions.md",
+      "showTimer": true,
+      "path": "data-literacy/assets/Canvas.tsx",
+      "parameters": {
+        "responseId": "drawingBpm"
+      },
+      "response": [
+        {
+          "id": "drawing100m",
+          "type": "radio",
+          "location": "sidebar",
+          "required": true,
+          "prompt": "Have you finished drawing your visualization?",
+          "options": ["Yes"],
+          "requiredValue": "Yes"
+        }
+      ]
+    },
+    "drawingRainfall": {
+      "type": "react-component",
+      "nextButtonLocation": "sidebar",
+      "description": "Question that asks users to count the number of bars that have a value greater than 1.",
+      "instruction": "Below is a table showing rainfall in inches compared to the historical average from that month for various states. \n\n ![demo](https://raw.githubusercontent.com/visdesignlab/visLiteracyStudy/5c4d6505c586ed0f1cd70d849b7367ccb619db2e/public/literacyProlific/assets/drawingTasks/rainfallTask.png) \n\n Sketch a visualization that you believe best represents this data. \n\n While doing so, <b>please speak out loud</b> to explain your thought process or any challenges you face. \n\n We suggest spending no more than 7 minutes on this task.",
+      "path": "data-literacy/assets/Canvas.tsx",
+      "showTimer": true,
+      "parameters": {
+        "responseId": "drawingRainfall"
+      },
+      "response": [
+        {
+          "id": "rainfallDone",
+          "type": "radio",
+          "location": "sidebar",
+          "required": true,
+          "prompt": "Have you finished drawing your visualization?",
+          "options": ["Yes"],
+          "requiredValue": "Yes"
+        }
+      ]
+    },
+    "drawingRanking": {
+      "type": "react-component",
+      "nextButtonLocation": "sidebar",
+      "description": "Question that asks users to count the number of bars that have a value greater than 1.",
+      "instruction": "Below is a table showing the rankings of the top five bundesliga football teams across the first six weeks of the season. \n\n ![demo](https://raw.githubusercontent.com/visdesignlab/visLiteracyStudy/5c4d6505c586ed0f1cd70d849b7367ccb619db2e/public/literacyProlific/assets/drawingTasks/rankingTask.png) \n\n Sketch a visualization that you believe best represents this data. \n\n While doing so, <b>please speak out loud</b> to explain your thought process or any challenges you face. \n\n We suggest spending no more than 7 minutes on this task.",
+      "path": "data-literacy/assets/Canvas.tsx",
+      "showTimer": true,
+      "parameters": {
+        "responseId": "drawingRanking"
+      },
+      "response": [
+        {
+          "id": "drawing100m",
+          "type": "radio",
+          "location": "sidebar",
+          "required": true,
+          "prompt": "Have you finished drawing your visualization?",
+          "options": ["Yes"],
+          "requiredValue": "Yes"
+        }
+      ]
+    },
+    "drawing100m": {
+      "type": "react-component",
+      "nextButtonLocation": "sidebar",
+      "showTimer": true,
+      "description": "Question that asks users to count the number of bars that have a value greater than 1.",
+      "instruction": "Below is a small table showing the 100m sprint times and long jump distance of five athletes. \n\n ![demo](https://raw.githubusercontent.com/visdesignlab/visLiteracyStudy/5c4d6505c586ed0f1cd70d849b7367ccb619db2e/public/literacyProlific/assets/drawingTasks/100mTask.png) \n\n Sketch a visualization that you believe best represents this data. \n\n  While doing so, <b>please speak out loud</b> to explain your thought process or any challenges you face. \n\n We suggest spending no more than 7 minutes on this task.",
+      "path": "data-literacy/assets/Canvas.tsx",
+      "parameters": {
+        "responseId": "drawing100m"
+      },
+      "response": [
+        {
+          "id": "drawing100m",
+          "type": "radio",
+          "location": "sidebar",
+          "required": true,
+          "prompt": "Have you finished drawing your visualization?",
+          "options": ["Yes"],
+          "requiredValue": "Yes"
+        }
+      ]
+    },
+    "postStudyProblems": {
+      "type": "questionnaire",
+      "recordAudio": true,
+      "description": "Question that asks users to count the number of bars that have a value greater than 1.",
+      "response": [
+        {
+          "id": "instructions",
+          "type": "textOnly",
+          "prompt": "Please answer the following question by  <b>speaking out loud</b>."
+        },
+        {
+          "id": "problems",
+          "type": "textOnly",
+          "prompt": "<b>Did you experience any problems with our tool?</b>"
+        },
+        {
+          "id": "doneTalking",
+          "type": "radio",
+          "required": true,
+          "prompt": "Have you answered the above question out loud?",
+          "options": ["Yes"]
+        }
+      ]
+    },
+    "postStudyIssues": {
+      "type": "questionnaire",
+      "recordAudio": true,
+      "description": "Question that asks users to count the number of bars that have a value greater than 1.",
+      "response": [
+        {
+          "id": "instructions",
+          "type": "textOnly",
+          "prompt": "Please answer the following question by  <b>speaking out loud</b>."
+        },
+
+        {
+          "id": "otherIssues",
+          "type": "textOnly",
+          "prompt": "<b>Any other issues or anything you would like to tell us?</b>"
+        },
+        {
+          "id": "doneTalking",
+          "type": "radio",
+          "required": true,
+          "prompt": "Have you answered the above question out loud?",
+          "options": ["Yes"]
+        }
+      ]
+    },
+    "postStudyDrawingExperience": {
+      "type": "questionnaire",
+      "recordAudio": true,
+      "description": "Question that asks users to count the number of bars that have a value greater than 1.",
+      "response": [
+        {
+          "id": "instructions",
+          "type": "textOnly",
+          "prompt": "Please answer the following question by  <b>speaking out loud</b>."
+        },
+        {
+          "id": "enjoyDrawing",
+          "type": "textOnly",
+          "prompt": "<b>Please provide any comments you had about your experience drawing visualizations?</b>"
+        },
+        {
+          "id": "doneTalking",
+          "type": "radio",
+          "required": true,
+          "prompt": "Have you answered the above question out loud?",
+          "options": ["Yes"]
+        }
+      ]
+    },
+    "postStudyAloudExperience": {
+      "type": "questionnaire",
+      "recordAudio": true,
+      "description": "Question that asks users to count the number of bars that have a value greater than 1.",
+      "response": [
+        {
+          "id": "instructions",
+          "type": "textOnly",
+          "prompt": "Please answer the following question by  <b>speaking out loud</b>."
+        },
+        {
+          "id": "enjoyThinkingAloud",
+          "type": "textOnly",
+          "prompt": "<b>Please provide any comments you had about thinking-aloud during this study?</b>"
+        },
+        {
+          "id": "doneTalking",
+          "type": "radio",
+          "required": true,
+          "prompt": "Have you answered the above question out loud?",
+          "options": ["Yes"]
+        }
+      ]
+    },
+    "demographics": {
+      "type": "questionnaire",
+      "recordAudio": false,
+      "description": "Basic demographic questions including gender, age, and education",
+      "response": [
+        {
+          "id": "gender",
+          "prompt": "What is your **gender**?",
+          "required": true,
+          "location": "aboveStimulus",
+          "type": "radio",
+          "withOther": true,
+          "options": [
+            "Woman",
+            "Man",
+            "Non-binary / Genderqueer / Third gender",
+            "Genderfluid / Gender non-conforming",
+            "Questioning",
+            "Prefer not to say"
+          ]
+        },
+        {
+          "id": "age",
+          "prompt": "What is your **age**?",
+          "required": true,
+          "location": "aboveStimulus",
+          "type": "radio",
+          "options": [
+            "Under 18 years",
+            "18-24 years",
+            "25-34 years",
+            "35-44 years",
+            "45-54 years",
+            "55-64 years",
+            "65 years or older",
+            "Prefer not to say"
+          ]
+        },
+        {
+          "id": "education",
+          "prompt": "What is the **highest degree or level of education** you have completed?",
+          "required": true,
+          "location": "aboveStimulus",
+          "type": "radio",
+          "withOther": true,
+          "options": [
+            "Less than high school",
+            "High school diploma or equivalent",
+            "Bachelor's degree or equivalent",
+            "Master's degree or equivalent",
+            "Doctoral degree or equivalent"
+          ]
+        }
+      ]
+    },
+    "postStudyHowDraw": {
+      "type": "questionnaire",
+      "recordAudio": false,
+      "description": "Question that asks users to count the number of bars that have a value greater than 1.",
+      "response": [
+        {
+          "id": "howDraw",
+          "type": "checkbox",
+          "required": true,
+          "prompt": "How did you draw your visualizations?",
+          "options": [
+            "Drawing tool (e.g. Apple Pencil)",
+            "Finger",
+            "Mouse or trackpad"
+          ]
+        }
+      ]
+    },
+    "preStudyExpertQuestions": {
+      "type": "questionnaire",
+      "recordAudio": false,
+      "description": "Check if experts",
+      "response": [
+        {
+          "id": "class",
+          "type": "radio",
+          "required": true,
+          "prompt": "Have you taken a graduate or undergraduate level data visualization course?",
+          "options": ["Yes", "No"]
+        },
+        {
+          "id": "phd",
+          "type": "radio",
+          "required": true,
+          "prompt": "Are you currently pursuing, or have you completed, a PhD in data visualization?",
+          "options": ["Yes", "No"]
+        },
+        {
+          "id": "review",
+          "type": "radio",
+          "required": true,
+          "prompt": "Have you or would you feel comfortable reviewing data visualization research for a conference or journal?",
+          "options": ["Yes", "No"]
+        }
+      ]
+    },
+    "preStudyVisAbility": {
+      "type": "questionnaire",
+      "recordAudio": false,
+      "description": "Question that asks users to count the number of bars that have a value greater than 1.",
+      "response": [
+        {
+          "id": "howDraw",
+          "type": "likert",
+          "required": true,
+          "numItems": 7,
+          "prompt": "How comfortable are you at interpreting numbers, percentages, and basic statistics?",
+          "leftLabel": "Not at all confident",
+          "rightLabel": "Extremely confident"
+        },
+        {
+          "id": "visLit",
+          "type": "likert",
+          "required": true,
+          "numItems": 7,
+          "prompt": "How confident are you in your ability to accurately interpret and critique charts, graphs, and other visualizations?",
+          "leftLabel": "Not at all confident",
+          "rightLabel": "Extremely confident"
+        },
+        {
+          "id": "visDraw",
+          "type": "likert",
+          "required": true,
+          "numItems": 7,
+          "prompt": "How confident are you in your ability to design and create charts, graphs, and other visualizations?",
+          "leftLabel": "Not at all confident",
+          "rightLabel": "Extremely confident"
+        }
+      ]
+    }
+  },
+  "sequence": {
+    "order": "fixed",
+    "components": [
+      "introduction",
+      "consent",
+      "datasetInterest",
+      "$mic-check.co.audioTest",
+      "preStudyExpertQuestions",
+      "preStudyVisAbility",
+      {
+        "id": "drawingPart",
+        "components": [
+          "drawingIntro",
+          "drawingTraining",
+          {
+            "components": [
+              {
+                "id": "drawingTree",
+                "order": "fixed",
+                "components": ["drawingTree", "drawingFollowUpTree"]
+              },
+              {
+                "id": "drawing100m",
+                "order": "fixed",
+                "components": ["drawing100m", "drawingFollowUp100M"]
+              },
+              {
+                "id": "drawingRanking",
+                "order": "fixed",
+                "components": ["drawingRanking", "drawingFollowUpRanking"]
+              },
+              {
+                "id": "drawingNetwork",
+                "order": "fixed",
+                "components": ["drawingNetwork", "drawingFollowUpNetwork"]
+              },
+              {
+                "id": "drawingRainfall",
+                "order": "fixed",
+                "components": ["drawingRainfall", "drawingFollowUpRainfall"]
+              }
+            ],
+            "order": "random"
+          }
+        ],
+        "order": "fixed"
+      },
+      {
+        "id": "critiquePart",
+        "components": [
+          "critiqueIntro",
+          {
+            "components": [
+              "critiqueCalvi2",
+              "critiqueUntimelyDeath",
+              "critiqueSciArticles"
+            ],
+            "order": "random"
+          }
+        ],
+        "order": "fixed"
+      },
+      "vlatIntro",
+      {
+        "components": [
+          "$mini-vlat.co.treemap",
+          "$mini-vlat.co.stackedBar100",
+          "$mini-vlat.co.histogram",
+          "$mini-vlat.co.choropleth",
+          "$mini-vlat.co.piechart",
+          "$mini-vlat.co.bubblechart",
+          "$mini-vlat.co.stackedbar",
+          "$mini-vlat.co.linechart",
+          "$mini-vlat.co.barchart",
+          "$mini-vlat.co.areachar",
+          "$mini-vlat.co.stackedarea",
+          "$mini-vlat.co.scatterplot",
+          "$calvi.co.T3",
+          "$calvi.co.T10",
+          "$calvi.co.T14",
+          "$calvi.co.T20",
+          "$calvi.co.T25",
+          "$calvi.co.T26",
+          "$calvi.co.T30",
+          "$calvi.co.T35",
+          "$calvi.co.T37",
+          "$calvi.co.T40",
+          "$calvi.co.T42",
+          "$calvi.co.T43",
+          "$calvi.co.T47",
+          "$calvi.co.T48",
+          "$calvi.co.T49"
+        ],
+        "order": "random",
+        "id": "vlatPart"
+      },
+      "postStudyProblems",
+      "postStudyIssues",
+      "postStudyDrawingExperience",
+      "postStudyAloudExperience",
+      "postStudyHowDraw",
+      "demographics"
+    ]
+  }
+}
