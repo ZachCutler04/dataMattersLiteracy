@@ -26,15 +26,16 @@ jobs:
 
       - run: yarn install --immutable
 
-      # If on main without env vars, build with .env file
-      - name: Build with .env file
+      # Build a self-contained GitHub Pages deployment when no storage
+      # configuration has been supplied through repository variables.
+      - name: Build with local storage
         if: ${{ vars.VITE_STORAGE_ENGINE == '' }}
-        run: yarn build
+        run: VITE_BASE_PATH=/${{ github.event.repository.name }}/ VITE_STORAGE_ENGINE=localStorage yarn build
 
       # If on main with env vars, build with github environment variables
       - name: Build with github environment variables
         if: ${{ vars.VITE_STORAGE_ENGINE != '' }}
-        run: VITE_STORAGE_ENGINE=$VITE_STORAGE_ENGINE yarn build
+        run: VITE_BASE_PATH=/${{ github.event.repository.name }}/ VITE_STORAGE_ENGINE=$VITE_STORAGE_ENGINE yarn build
         env:
           VITE_STORAGE_ENGINE: ${{ vars.VITE_STORAGE_ENGINE }}
 
