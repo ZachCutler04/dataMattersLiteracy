@@ -26,7 +26,6 @@
   "components": {
     "introduction": {
       "type": "markdown",
-      "forceTouchScreen": false,
       "recordAudio": false,
       "path": "data-literacy/assets/introduction.md",
       "response": [
@@ -326,9 +325,8 @@
       "type": "react-component",
       "nextButtonLocation": "sidebar",
       "description": "Question that asks users to count the number of bars that have a value greater than 1.",
-      "instructionPath": "data-literacy/assets/drawingTasks/treeInstructions.md",
+      "instruction": "Below is part of a computer directory showing the names and sizes (in megabytes) of files and subdirectories in a folder.\n\n## datavis-25/\n\n### Lectures/\n- Intro.key (110 MB)\n- perception/\n  - Perception.key (113 MB)\n  - Blindness.mov (50 MB)\n- Data.key (12 MB)\n- Graphs.key (180 MB)\n\n### Exams/\n- Exam1-sol.doc (5 MB)\n- Exam1.doc (1 MB)\n- Exercises\n  - Graph.doc (3 MB)\n  - Graph-vid.mov (210 MB)\n\nSketch a visualization that you believe best represents this data.\n\nWhile doing so, <b>please speak out loud</b> to explain your thought process or any challenges you face.\n\nWe suggest spending no more than 7 minutes on this task.",
       "path": "data-literacy/assets/Canvas.tsx",
-      "showTimer": true,
       "parameters": {
         "responseId": "drawingTree"
       },
@@ -349,7 +347,6 @@
       "nextButtonLocation": "sidebar",
       "path": "data-literacy/assets/Canvas.tsx",
       "recordAudio": false,
-      "showTimer": true,
       "description": "Question that asks users to count the number of bars that have a value greater than 1.",
       "instruction": "To the right, there is a drawing interface with a few options. \n\n At the top of the canvas, you can change between a pencil and an eraser, change the size of your pencil, and change the color of your pencil. Below the options is a blank canvas for you to draw on. \n\n Feel free to practice using the drawing interface now, and when you feel comfortable, click the next button to begin the drawing tasks.",
       "response": [
@@ -370,7 +367,6 @@
       "description": "Question that asks users to count the number of bars that have a value greater than 1.",
       "instruction": "Below is a list of authors, how many papers each author has published, and how many papers author pairs have published together. \n\n ![demo](https://raw.githubusercontent.com/visdesignlab/visLiteracyStudy/5c4d6505c586ed0f1cd70d849b7367ccb619db2e/public/literacyProlific/assets/drawingTasks/networkTask.png) \n\n  Sketch a visualization that you believe best represents this data. \n\n While doing so, <b>please speak out loud</b> to explain your thought process or any challenges you face. \n\n We suggest spending no more than 7 minutes on this task.",
       "path": "data-literacy/assets/Canvas.tsx",
-      "showTimer": true,
       "parameters": {
         "responseId": "drawingNetwork"
       },
@@ -390,8 +386,7 @@
       "type": "react-component",
       "nextButtonLocation": "sidebar",
       "description": "Question that asks users to count the number of bars that have a value greater than 1.",
-      "instructionPath": "data-literacy/assets/drawingTasks/bpmInstructions.md",
-      "showTimer": true,
+      "instruction": "Below is a small table showing individuals' heart beats per minute at three points in time.\n\n![demo](https://raw.githubusercontent.com/visdesignlab/visLiteracyStudy/5c4d6505c586ed0f1cd70d849b7367ccb619db2e/public/literacyProlific/assets/drawingTasks/bpmTask.png)\n\nSketch a visualization representing this data.\n\nWhile doing so, please talk aloud to explain your thought process or any challenges you face.",
       "path": "data-literacy/assets/Canvas.tsx",
       "parameters": {
         "responseId": "drawingBpm"
@@ -414,7 +409,6 @@
       "description": "Question that asks users to count the number of bars that have a value greater than 1.",
       "instruction": "Below is a table showing rainfall in inches compared to the historical average from that month for various states. \n\n ![demo](https://raw.githubusercontent.com/visdesignlab/visLiteracyStudy/5c4d6505c586ed0f1cd70d849b7367ccb619db2e/public/literacyProlific/assets/drawingTasks/rainfallTask.png) \n\n Sketch a visualization that you believe best represents this data. \n\n While doing so, <b>please speak out loud</b> to explain your thought process or any challenges you face. \n\n We suggest spending no more than 7 minutes on this task.",
       "path": "data-literacy/assets/Canvas.tsx",
-      "showTimer": true,
       "parameters": {
         "responseId": "drawingRainfall"
       },
@@ -436,7 +430,6 @@
       "description": "Question that asks users to count the number of bars that have a value greater than 1.",
       "instruction": "Below is a table showing the rankings of the top five bundesliga football teams across the first six weeks of the season. \n\n ![demo](https://raw.githubusercontent.com/visdesignlab/visLiteracyStudy/5c4d6505c586ed0f1cd70d849b7367ccb619db2e/public/literacyProlific/assets/drawingTasks/rankingTask.png) \n\n Sketch a visualization that you believe best represents this data. \n\n While doing so, <b>please speak out loud</b> to explain your thought process or any challenges you face. \n\n We suggest spending no more than 7 minutes on this task.",
       "path": "data-literacy/assets/Canvas.tsx",
-      "showTimer": true,
       "parameters": {
         "responseId": "drawingRanking"
       },
@@ -455,7 +448,6 @@
     "drawing100m": {
       "type": "react-component",
       "nextButtonLocation": "sidebar",
-      "showTimer": true,
       "description": "Question that asks users to count the number of bars that have a value greater than 1.",
       "instruction": "Below is a small table showing the 100m sprint times and long jump distance of five athletes. \n\n ![demo](https://raw.githubusercontent.com/visdesignlab/visLiteracyStudy/5c4d6505c586ed0f1cd70d849b7367ccb619db2e/public/literacyProlific/assets/drawingTasks/100mTask.png) \n\n Sketch a visualization that you believe best represents this data. \n\n  While doing so, <b>please speak out loud</b> to explain your thought process or any challenges you face. \n\n We suggest spending no more than 7 minutes on this task.",
       "path": "data-literacy/assets/Canvas.tsx",
@@ -773,7 +765,7 @@
       {
         "components": [
           "$mini-vlat.co.treemap",
-          "$mini-vlat.co.stackedBar100",
+          "$mini-vlat.co.stackedbar100",
           "$mini-vlat.co.histogram",
           "$mini-vlat.co.choropleth",
           "$mini-vlat.co.piechart",
@@ -781,7 +773,7 @@
           "$mini-vlat.co.stackedbar",
           "$mini-vlat.co.linechart",
           "$mini-vlat.co.barchart",
-          "$mini-vlat.co.areachar",
+          "$mini-vlat.co.areachart",
           "$mini-vlat.co.stackedarea",
           "$mini-vlat.co.scatterplot",
           "$calvi.co.T3",
