@@ -74,7 +74,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             try {
-              await github.rest.repos.deleteCustomDomain({
+              await github.request('DELETE /repos/{owner}/{repo}/pages/cname', {
                 owner: context.repo.owner,
                 repo: context.repo.repo,
               });
