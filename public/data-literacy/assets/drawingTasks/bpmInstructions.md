@@ -3,7 +3,7 @@ Below is a small table showing individuals heart beats per minute at three point
 
 <br/>
 
-![demo](assets/drawingTasks/bpmTask.png) 
+![demo](https://raw.githubusercontent.com/visdesignlab/visLiteracyStudy/5c4d6505c586ed0f1cd70d849b7367ccb619db2e/public/literacyProlific/assets/drawingTasks/bpmTask.png) 
 <br/>
 
 Sketch a visualization representing this data. 
