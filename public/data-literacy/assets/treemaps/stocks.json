@@ -1,0 +1,345 @@
+{
+  "title": "Largest S&P 500 Companies",
+  "legendTitle": "Year-to-date return (as of Oct. 28, 2026)",
+  "colorDomain": [
+    -30,
+    60
+  ],
+  "unit": "%",
+  "source": "Market cap from stockanalysis.com S&P 500 list; YTD return from finviz.com screener; both retrieved 28 Oct 2026. Value = market cap in $ billions.",
+  "categories": [
+    {
+      "name": "Technology",
+      "palette": [
+        "#f8dce9",
+        "#f5bad5",
+        "#f294bf",
+        "#ee6aa6",
+        "#ec4594",
+        "#e8237f"
+      ],
+      "children": [
+        {
+          "name": "Semiconductors",
+          "highlight": true,
+          "children": [
+            {
+              "name": "Nvidia",
+              "value": 5220,
+              "change": 16.46
+            },
+            {
+              "name": "Broadcom",
+              "value": 1660,
+              "change": 1.14
+            },
+            {
+              "name": "Micron",
+              "value": 1100,
+              "change": 241.18
+            },
+            {
+              "name": "AMD",
+              "value": 929.92,
+              "change": 167.65
+            },
+            {
+              "name": "Intel",
+              "value": 494.82,
+              "change": 157.13
+            },
+            {
+              "name": "Applied Materials",
+              "value": 329.8,
+              "change": 62.88
+            },
+            {
+              "name": "Lam Research",
+              "value": 316.43,
+              "change": 49.17
+            },
+            {
+              "name": "Texas Instruments",
+              "value": 280.53,
+              "change": 77.19
+            }
+          ]
+        },
+        {
+          "name": "Apple",
+          "value": 5030,
+          "change": 26.86
+        },
+        {
+          "name": "Microsoft",
+          "value": 3920,
+          "change": 9.37
+        },
+        {
+          "name": "Palantir",
+          "value": 464.51,
+          "change": 9.16
+        },
+        {
+          "name": "Cisco",
+          "value": 434,
+          "change": 43.26
+        },
+        {
+          "name": "Oracle",
+          "value": 427.59,
+          "change": -27.01
+        },
+        {
+          "name": "Palo Alto Networks",
+          "value": 324.29,
+          "change": 114.99
+        },
+        {
+          "name": "Dell",
+          "value": 314.03,
+          "change": 294.38
+        },
+        {
+          "name": "CrowdStrike",
+          "value": 271.97,
+          "change": 126.14
+        },
+        {
+          "name": "IBM",
+          "value": 238,
+          "change": -14.89
+        }
+      ]
+    },
+    {
+      "name": "Finance, health and industry",
+      "legendLabel": "Finance, health, industry",
+      "palette": [
+        "#f7ee6d",
+        "#fdd451",
+        "#fcb441",
+        "#f7962a",
+        "#f37a22",
+        "#f15d24"
+      ],
+      "children": [
+        {
+          "name": "Berkshire Hathaway",
+          "value": 1160,
+          "change": 7.84
+        },
+        {
+          "name": "Eli Lilly",
+          "value": 1150,
+          "change": 19.71
+        },
+        {
+          "name": "JPMorgan Chase",
+          "value": 899,
+          "change": 5.14
+        },
+        {
+          "name": "ExxonMobil",
+          "value": 750.07,
+          "change": 51.53
+        },
+        {
+          "name": "Visa",
+          "value": 748.32,
+          "change": 14.78
+        },
+        {
+          "name": "Johnson & Johnson",
+          "value": 653.3,
+          "change": 31.11
+        },
+        {
+          "name": "Mastercard",
+          "value": 536.99,
+          "change": 7.38
+        },
+        {
+          "name": "AbbVie",
+          "value": 507.96,
+          "change": 25.72
+        },
+        {
+          "name": "Chevron",
+          "value": 452.63,
+          "change": 51.31
+        },
+        {
+          "name": "UnitedHealth",
+          "value": 366.04,
+          "change": 23.69
+        },
+        {
+          "name": "Bank of America",
+          "value": 351.47,
+          "change": -7.53
+        },
+        {
+          "name": "Merck",
+          "value": 346.46,
+          "change": 33.39
+        },
+        {
+          "name": "Caterpillar",
+          "value": 329.04,
+          "change": 25.31
+        },
+        {
+          "name": "GE Aerospace",
+          "value": 312.34,
+          "change": -1.83
+        },
+        {
+          "name": "Morgan Stanley",
+          "value": 296.91,
+          "change": 6.97
+        },
+        {
+          "name": "Goldman Sachs",
+          "value": 279.51,
+          "change": 5.07
+        },
+        {
+          "name": "RTX",
+          "value": 265.54,
+          "change": 7.26
+        },
+        {
+          "name": "Thermo Fisher",
+          "value": 261.22,
+          "change": 21.93
+        },
+        {
+          "name": "Wells Fargo",
+          "value": 252.53,
+          "change": -9.74
+        },
+        {
+          "name": "Amgen",
+          "value": 243.64,
+          "change": 37.72
+        },
+        {
+          "name": "GE Vernova",
+          "value": 235.71,
+          "change": 35.13
+        }
+      ]
+    },
+    {
+      "name": "Consumer and communication",
+      "legendLabel": "Consumer, communication",
+      "palette": [
+        "#d8efe1",
+        "#b2e0c9",
+        "#8fd1b2",
+        "#6cc6a2",
+        "#40bb8f",
+        "#1db884"
+      ],
+      "children": [
+        {
+          "name": "Alphabet",
+          "value": 3950,
+          "change": 3.44
+        },
+        {
+          "name": "Amazon",
+          "value": 2730,
+          "change": 9.79
+        },
+        {
+          "name": "Tesla",
+          "value": 1590,
+          "change": -10.13
+        },
+        {
+          "name": "Meta",
+          "value": 1560,
+          "change": -7.43
+        },
+        {
+          "name": "Walmart",
+          "value": 944.83,
+          "change": 6.86
+        },
+        {
+          "name": "Costco",
+          "value": 436.23,
+          "change": 14.17
+        },
+        {
+          "name": "Coca-Cola",
+          "value": 394.36,
+          "change": 31.17
+        },
+        {
+          "name": "Procter & Gamble",
+          "value": 367.69,
+          "change": 10.76
+        },
+        {
+          "name": "Home Depot",
+          "value": 317.1,
+          "change": -7.54
+        },
+        {
+          "name": "Philip Morris",
+          "value": 316.56,
+          "change": 26.83
+        },
+        {
+          "name": "Netflix",
+          "value": 252.95,
+          "change": -34.19
+        }
+      ]
+    }
+  ],
+  "annotations": [
+    {
+      "target": "Nvidia",
+      "text": [
+        "Nvidia is the largest company",
+        "in the index, worth over",
+        "$5 trillion."
+      ],
+      "x": 70,
+      "y": 210
+    },
+    {
+      "target": "Netflix",
+      "text": [
+        "Netflix is down 34% this",
+        "year, the worst among",
+        "these companies."
+      ],
+      "x": 72,
+      "y": 1430
+    },
+    {
+      "target": "Dell",
+      "text": [
+        "Dell’s stock has nearly",
+        "quadrupled this year."
+      ],
+      "x": 505,
+      "y": 1430
+    },
+    {
+      "target": "Tesla",
+      "text": [
+        "Tesla is down 10% this",
+        "year, while Alphabet",
+        "is up 3%."
+      ],
+      "x": 1580,
+      "y": 1245
+    }
+  ]
+}
