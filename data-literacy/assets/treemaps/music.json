@@ -1,0 +1,170 @@
+{
+  "title": "Music Revenue by Format",
+  "legendTitle": "Change in revenue (2023 to 2024)",
+  "colorDomain": [
+    -20,
+    10
+  ],
+  "unit": "%",
+  "source": "RIAA 2024 Year-End Revenue Statistics. Value = US estimated retail revenue in $ millions, 2024.",
+  "categories": [
+    {
+      "name": "Streaming",
+      "palette": [
+        "#f8dce9",
+        "#f5bad5",
+        "#f294bf",
+        "#ee6aa6",
+        "#ec4594",
+        "#e8237f"
+      ],
+      "children": [
+        {
+          "name": "Paid subscriptions",
+          "value": 10687,
+          "change": 5.29
+        },
+        {
+          "name": "Limited-tier subscriptions",
+          "value": 998.3,
+          "change": -2.26
+        },
+        {
+          "name": "Ad-supported",
+          "highlight": true,
+          "children": [
+            {
+              "name": "On-demand (ad-supported)",
+              "value": 1831.9,
+              "change": -1.75
+            },
+            {
+              "name": "SoundExchange radio",
+              "value": 1054,
+              "change": 4.9
+            },
+            {
+              "name": "Other ad-supported",
+              "value": 306.5,
+              "change": -3.53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Physical",
+      "palette": [
+        "#f7ee6d",
+        "#fdd451",
+        "#fcb441",
+        "#f7962a",
+        "#f37a22",
+        "#f15d24"
+      ],
+      "children": [
+        {
+          "name": "Vinyl LPs",
+          "value": 1442.9,
+          "change": 6.87
+        },
+        {
+          "name": "CDs",
+          "value": 541.1,
+          "change": 0.74
+        },
+        {
+          "name": "Other physical",
+          "value": 21.7,
+          "change": 55
+        },
+        {
+          "name": "Music video",
+          "value": 8.9,
+          "change": -16.82
+        }
+      ]
+    },
+    {
+      "name": "Downloads and licensing",
+      "legendLabel": "Downloads, licensing",
+      "palette": [
+        "#d8efe1",
+        "#b2e0c9",
+        "#8fd1b2",
+        "#6cc6a2",
+        "#40bb8f",
+        "#1db884"
+      ],
+      "children": [
+        {
+          "name": "Sync licensing",
+          "value": 412.6,
+          "change": 2.51
+        },
+        {
+          "name": "Album downloads",
+          "value": 166.7,
+          "change": -18.64
+        },
+        {
+          "name": "Single downloads",
+          "value": 162.4,
+          "change": -14.88
+        },
+        {
+          "name": "Other digital",
+          "value": 35.1,
+          "change": 24.91
+        },
+        {
+          "name": "Ringtones",
+          "value": 5.6,
+          "change": -46.67
+        }
+      ]
+    }
+  ],
+  "annotations": [
+    {
+      "target": "Paid subscriptions",
+      "text": [
+        "Paid subscriptions bring in",
+        "60% of all US recorded",
+        "music revenue."
+      ],
+      "x": 70,
+      "y": 210
+    },
+    {
+      "target": "On-demand (ad-supported)",
+      "text": [
+        "Ad-supported on-demand",
+        "streaming fell 2%, to",
+        "$1.8 billion."
+      ],
+      "x": 72,
+      "y": 1430
+    },
+    {
+      "target": "Album downloads",
+      "text": [
+        "Album downloads fell 19%",
+        "and single downloads 15%."
+      ],
+      "x": 505,
+      "y": 1430
+    },
+    {
+      "target": "Vinyl LPs",
+      "text": [
+        "Vinyl earned $1.4 billion,",
+        "its highest since 1984,",
+        "outselling CDs 44 million",
+        "to 33 million units."
+      ],
+      "x": 1580,
+      "y": 1245
+    }
+  ]
+}

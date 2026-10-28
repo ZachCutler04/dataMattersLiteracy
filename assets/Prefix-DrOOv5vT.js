@@ -1,0 +1,1 @@
+var e=`/dataMattersLiteracy/`;export{e as t};

@@ -1,0 +1,308 @@
+{
+  "title": "What Developers Use",
+  "legendTitle": "Change in % of developers using it (2024 to 2025)",
+  "colorDomain": [
+    -6,
+    18
+  ],
+  "unit": " pts",
+  "source": "Stack Overflow Developer Survey 2024 and 2025, all respondents. Value = % of respondents who used it in the past year.",
+  "categories": [
+    {
+      "name": "Languages",
+      "palette": [
+        "#f8dce9",
+        "#f5bad5",
+        "#f294bf",
+        "#ee6aa6",
+        "#ec4594",
+        "#e8237f"
+      ],
+      "children": [
+        {
+          "name": "JavaScript",
+          "value": 66,
+          "change": 3.7
+        },
+        {
+          "name": "HTML/CSS",
+          "value": 61.9,
+          "change": 9
+        },
+        {
+          "name": "SQL",
+          "value": 58.6,
+          "change": 7.6
+        },
+        {
+          "name": "Python",
+          "value": 57.9,
+          "change": 6.9
+        },
+        {
+          "name": "Bash/Shell",
+          "value": 48.7,
+          "change": 14.8
+        },
+        {
+          "name": "TypeScript",
+          "value": 43.6,
+          "change": 5.1
+        },
+        {
+          "name": "Java",
+          "value": 29.4,
+          "change": -0.9
+        },
+        {
+          "name": "C#",
+          "value": 27.8,
+          "change": 0.7
+        },
+        {
+          "name": "C++",
+          "value": 23.5,
+          "change": 0.5
+        },
+        {
+          "name": "PowerShell",
+          "value": 23.2,
+          "change": 9.4
+        },
+        {
+          "name": "C",
+          "value": 22,
+          "change": 1.7
+        },
+        {
+          "name": "PHP",
+          "value": 18.9,
+          "change": 0.7
+        },
+        {
+          "name": "Go",
+          "value": 16.4,
+          "change": 2.9
+        },
+        {
+          "name": "Rust",
+          "value": 14.8,
+          "change": 2.2
+        },
+        {
+          "name": "Kotlin",
+          "value": 10.8,
+          "change": 1.4
+        }
+      ]
+    },
+    {
+      "name": "Tools and cloud",
+      "palette": [
+        "#f7ee6d",
+        "#fdd451",
+        "#fcb441",
+        "#f7962a",
+        "#f37a22",
+        "#f15d24"
+      ],
+      "children": [
+        {
+          "name": "Cloud platforms",
+          "highlight": true,
+          "children": [
+            {
+              "name": "AWS",
+              "value": 43.3,
+              "change": -4.7
+            },
+            {
+              "name": "Microsoft Azure",
+              "value": 26.3,
+              "change": -1.5
+            },
+            {
+              "name": "Google Cloud",
+              "value": 24.6,
+              "change": -0.5
+            },
+            {
+              "name": "Cloudflare",
+              "value": 20.1,
+              "change": 5
+            }
+          ]
+        },
+        {
+          "name": "Docker",
+          "value": 71.1,
+          "change": 17.2
+        },
+        {
+          "name": "npm",
+          "value": 56.8,
+          "change": 7.2
+        },
+        {
+          "name": "Pip",
+          "value": 40.9,
+          "change": 8.5
+        },
+        {
+          "name": "Kubernetes",
+          "value": 28.5,
+          "change": 9.1
+        },
+        {
+          "name": "Homebrew",
+          "value": 25.7,
+          "change": 3.4
+        },
+        {
+          "name": "Vite",
+          "value": 25.4,
+          "change": 5.5
+        },
+        {
+          "name": "Make",
+          "value": 23.2,
+          "change": 2.4
+        },
+        {
+          "name": "Yarn",
+          "value": 21.1,
+          "change": 2.3
+        },
+        {
+          "name": "NuGet",
+          "value": 18.9,
+          "change": 2.8
+        },
+        {
+          "name": "Webpack",
+          "value": 18.4,
+          "change": 0
+        }
+      ]
+    },
+    {
+      "name": "Databases",
+      "palette": [
+        "#d8efe1",
+        "#b2e0c9",
+        "#8fd1b2",
+        "#6cc6a2",
+        "#40bb8f",
+        "#1db884"
+      ],
+      "children": [
+        {
+          "name": "PostgreSQL",
+          "value": 55.6,
+          "change": 6.9
+        },
+        {
+          "name": "MySQL",
+          "value": 40.5,
+          "change": 0.2
+        },
+        {
+          "name": "SQLite",
+          "value": 37.5,
+          "change": 4.4
+        },
+        {
+          "name": "Microsoft SQL Server",
+          "value": 30.1,
+          "change": 4.8
+        },
+        {
+          "name": "Redis",
+          "value": 28,
+          "change": 8
+        },
+        {
+          "name": "MongoDB",
+          "value": 24,
+          "change": -0.8
+        },
+        {
+          "name": "MariaDB",
+          "value": 22.5,
+          "change": 5.3
+        },
+        {
+          "name": "Elasticsearch",
+          "value": 16.7,
+          "change": 4.2
+        },
+        {
+          "name": "Oracle",
+          "value": 10.6,
+          "change": 0.5
+        },
+        {
+          "name": "DynamoDB",
+          "value": 9.8,
+          "change": 1.9
+        },
+        {
+          "name": "BigQuery",
+          "value": 6.5,
+          "change": 1.7
+        },
+        {
+          "name": "Supabase",
+          "value": 6,
+          "change": 2
+        },
+        {
+          "name": "Cloud Firestore",
+          "value": 5.7,
+          "change": 0.3
+        }
+      ]
+    }
+  ],
+  "annotations": [
+    {
+      "target": "AWS",
+      "text": [
+        "AWS is still the top cloud",
+        "platform but lost the most",
+        "ground, down nearly 5 points."
+      ],
+      "x": 70,
+      "y": 210
+    },
+    {
+      "target": "Docker",
+      "text": [
+        "Docker use jumped 17 points,",
+        "to 71% of developers."
+      ],
+      "x": 72,
+      "y": 1430
+    },
+    {
+      "target": "MongoDB",
+      "text": [
+        "MongoDB was the only",
+        "database here to lose users."
+      ],
+      "x": 505,
+      "y": 1430
+    },
+    {
+      "target": "PostgreSQL",
+      "text": [
+        "PostgreSQL is used by",
+        "more than half of",
+        "developers, well ahead",
+        "of MySQL at 41%."
+      ],
+      "x": 1580,
+      "y": 1245
+    }
+  ]
+}

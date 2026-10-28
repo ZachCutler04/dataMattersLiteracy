@@ -1,0 +1,396 @@
+{
+  "title": "Causes of Untimely Death",
+  "legendTitle": "Annual % change (2005 to 2010)",
+  "colorDomain": [
+    -3,
+    3
+  ],
+  "unit": "%",
+  "categories": [
+    {
+      "name": "Noncommunicable diseases",
+      "palette": [
+        "#f8dce9",
+        "#f5bad5",
+        "#f294bf",
+        "#ee6aa6",
+        "#ec4594",
+        "#e8237f"
+      ],
+      "children": [
+        {
+          "name": "Ischemic heart disease",
+          "value": 130,
+          "change": -0.4
+        },
+        {
+          "name": "Stroke",
+          "value": 100,
+          "change": -1.8
+        },
+        {
+          "name": "Cancer",
+          "highlight": true,
+          "children": [
+            {
+              "name": "Lung",
+              "value": 30,
+              "change": 0.5
+            },
+            {
+              "name": "Other",
+              "value": 25,
+              "change": 1.2
+            },
+            {
+              "name": "Liver",
+              "value": 20,
+              "change": 0.3
+            },
+            {
+              "name": "Stomach",
+              "value": 20,
+              "change": -1.9
+            },
+            {
+              "name": "Colon",
+              "value": 15,
+              "change": 0.4
+            },
+            {
+              "name": "Breast",
+              "value": 15,
+              "change": 0.8
+            },
+            {
+              "name": "Leukemia",
+              "value": 10,
+              "change": -0.6
+            },
+            {
+              "name": "Throat",
+              "value": 8,
+              "change": -0.2
+            },
+            {
+              "name": "Cervical",
+              "value": 8,
+              "change": 0.2
+            },
+            {
+              "name": "Brain",
+              "value": 6,
+              "change": -1.2
+            },
+            {
+              "name": "Pancreatic",
+              "value": 5,
+              "change": 1.4
+            }
+          ]
+        },
+        {
+          "name": "Emphysema and chronic bronchitis",
+          "value": 50,
+          "change": -0.8
+        },
+        {
+          "name": "Other cardio and circulatory",
+          "value": 45,
+          "change": 0.2
+        },
+        {
+          "name": "Diabetes",
+          "value": 30,
+          "change": 0.9
+        },
+        {
+          "name": "Cirrhosis",
+          "value": 30,
+          "change": -0.3
+        },
+        {
+          "name": "Congenital anomalies",
+          "value": 30,
+          "change": -2.8
+        },
+        {
+          "name": "Kidney disease",
+          "value": 25,
+          "change": 1.5
+        },
+        {
+          "name": "Neurological",
+          "value": 20,
+          "change": 2.5
+        },
+        {
+          "name": "Mental and substance use",
+          "value": 15,
+          "change": 0.6
+        },
+        {
+          "name": "Asthma",
+          "value": 8,
+          "change": -0.9
+        },
+        {
+          "name": "Ulcers",
+          "value": 6,
+          "change": -2.9
+        },
+        {
+          "name": "Urinary",
+          "value": 5,
+          "change": 2.4
+        }
+      ]
+    },
+    {
+      "name": "Infectious diseases and birth problems",
+      "legendLabel": "Infectious diseases/birth problems",
+      "palette": [
+        "#f7ee6d",
+        "#fdd451",
+        "#fcb441",
+        "#f7962a",
+        "#f37a22",
+        "#f15d24"
+      ],
+      "children": [
+        {
+          "name": "Lower respiratory infections",
+          "value": 110,
+          "change": -1.5
+        },
+        {
+          "name": "Diarrhea",
+          "value": 85,
+          "change": -2.5
+        },
+        {
+          "name": "Malaria",
+          "value": 75,
+          "change": -1.6
+        },
+        {
+          "name": "HIV/AIDS",
+          "value": 70,
+          "change": -2.2
+        },
+        {
+          "name": "Preterm birth",
+          "value": 70,
+          "change": -1.2
+        },
+        {
+          "name": "Neonatal encephalopathy",
+          "value": 50,
+          "change": -1.4
+        },
+        {
+          "name": "Neonatal infections",
+          "value": 45,
+          "change": -0.5
+        },
+        {
+          "name": "TB",
+          "value": 40,
+          "change": -1.5
+        },
+        {
+          "name": "Other neonatal conditions",
+          "value": 35,
+          "change": -2
+        },
+        {
+          "name": "Starvation",
+          "value": 35,
+          "change": -2.1
+        },
+        {
+          "name": "Meningitis",
+          "value": 25,
+          "change": -0.3
+        },
+        {
+          "name": "Typhoid",
+          "value": 15,
+          "change": 0.8
+        },
+        {
+          "name": "Other inf.",
+          "value": 15,
+          "change": -0.4
+        },
+        {
+          "name": "Maternal disorders",
+          "value": 15,
+          "change": -2
+        },
+        {
+          "name": "Measles",
+          "value": 12,
+          "change": -2.5
+        },
+        {
+          "name": "STDs",
+          "value": 12,
+          "change": -2.2
+        },
+        {
+          "name": "Whooping cough",
+          "value": 10,
+          "change": -1.8
+        },
+        {
+          "name": "Hepatitis",
+          "value": 8,
+          "change": 0.5
+        },
+        {
+          "name": "Tetanus",
+          "value": 6,
+          "change": -2.6
+        }
+      ]
+    },
+    {
+      "name": "Injuries",
+      "palette": [
+        "#d8efe1",
+        "#b2e0c9",
+        "#8fd1b2",
+        "#6cc6a2",
+        "#40bb8f",
+        "#1db884"
+      ],
+      "children": [
+        {
+          "name": "Road accidents",
+          "value": 75,
+          "change": 0.3
+        },
+        {
+          "name": "Suicide",
+          "value": 35,
+          "change": -1.8
+        },
+        {
+          "name": "Violence",
+          "value": 25,
+          "change": -1.2
+        },
+        {
+          "name": "Falls",
+          "value": 25,
+          "change": 1
+        },
+        {
+          "name": "Drowning",
+          "value": 18,
+          "change": -2
+        },
+        {
+          "name": "Other",
+          "value": 15,
+          "change": -1.5
+        },
+        {
+          "name": "Fire",
+          "value": 12,
+          "change": -1.6
+        },
+        {
+          "name": "Poison",
+          "value": 8,
+          "change": -1.4
+        },
+        {
+          "name": "Machines",
+          "value": 8,
+          "change": -0.8
+        },
+        {
+          "name": "Animals",
+          "value": 5,
+          "change": 0.5
+        },
+        {
+          "name": "War",
+          "value": 3,
+          "change": -2.5
+        },
+        {
+          "name": "Natural disasters",
+          "value": 3,
+          "change": 3
+        }
+      ]
+    }
+  ],
+  "annotations": [
+    {
+      "target": "Malaria",
+      "text": [
+        "Malaria—a preventable",
+        "and treatable disease—",
+        "is one of the biggest killers",
+        "of children."
+      ],
+      "x": 70,
+      "y": 210
+    },
+    {
+      "target": "War",
+      "text": [
+        "War casualties account for",
+        "just 0.05 percent of total",
+        "life-years lost annually."
+      ],
+      "x": 72,
+      "y": 1430,
+      "elbows": [
+        [
+          50,
+          1362
+        ],
+        [
+          280,
+          1362
+        ]
+      ]
+    },
+    {
+      "target": "Natural disasters",
+      "text": [
+        "Natural disasters are by",
+        "far the fastest-growing con-",
+        "tributor to the death toll."
+      ],
+      "x": 505,
+      "y": 1430,
+      "elbows": [
+        [
+          483,
+          1362
+        ]
+      ]
+    },
+    {
+      "target": "Ischemic heart disease",
+      "text": [
+        "Heart disease and",
+        "stroke cause more",
+        "than a quarter of",
+        "all deaths. But since",
+        "they hit mainly older",
+        "people, the cost in",
+        "years of life lost is",
+        "relatively small."
+      ],
+      "x": 1580,
+      "y": 1245
+    }
+  ]
+}

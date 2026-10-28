@@ -1,0 +1,264 @@
+{
+  "title": "High School Sports",
+  "legendTitle": "Change in participants (2023–24 to 2024–25)",
+  "colorDomain": [
+    -6,
+    12
+  ],
+  "unit": "%",
+  "source": "NFHS High School Athletics Participation Survey, 2023-24 and 2024-25. Value = combined boys and girls participants in 2024-25.",
+  "categories": [
+    {
+      "name": "Team sports",
+      "palette": [
+        "#f8dce9",
+        "#f5bad5",
+        "#f294bf",
+        "#ee6aa6",
+        "#ec4594",
+        "#e8237f"
+      ],
+      "children": [
+        {
+          "name": "Football",
+          "highlight": true,
+          "children": [
+            {
+              "name": "11-player football",
+              "value": 1034425,
+              "change": -0.11
+            },
+            {
+              "name": "Flag football",
+              "value": 69672,
+              "change": 58.51
+            },
+            {
+              "name": "8-player football",
+              "value": 22093,
+              "change": -16.38
+            },
+            {
+              "name": "6-player",
+              "value": 6803,
+              "change": -0.26
+            },
+            {
+              "name": "9-player",
+              "value": 6333,
+              "change": 7.19
+            }
+          ]
+        },
+        {
+          "name": "Basketball",
+          "value": 896944,
+          "change": -0.78
+        },
+        {
+          "name": "Soccer",
+          "value": 877956,
+          "change": 3.12
+        },
+        {
+          "name": "Volleyball",
+          "value": 588771,
+          "change": 4.32
+        },
+        {
+          "name": "Baseball",
+          "value": 473979,
+          "change": 0.19
+        },
+        {
+          "name": "Fast-pitch softball",
+          "value": 338445,
+          "change": -2.07
+        },
+        {
+          "name": "Lacrosse",
+          "value": 212988,
+          "change": -1.49
+        },
+        {
+          "name": "Field hockey",
+          "value": 50856,
+          "change": -2
+        },
+        {
+          "name": "Ice hockey",
+          "value": 41842,
+          "change": -0.42
+        },
+        {
+          "name": "Water polo",
+          "value": 39779,
+          "change": -3.18
+        },
+        {
+          "name": "Beach volleyball",
+          "value": 12481,
+          "change": 7.73
+        }
+      ]
+    },
+    {
+      "name": "Individual sports",
+      "palette": [
+        "#f7ee6d",
+        "#fdd451",
+        "#fcb441",
+        "#f7962a",
+        "#f37a22",
+        "#f15d24"
+      ],
+      "children": [
+        {
+          "name": "Outdoor track and field",
+          "value": 1158043,
+          "change": 2.36
+        },
+        {
+          "name": "Cross country",
+          "value": 433298,
+          "change": 0.22
+        },
+        {
+          "name": "Wrestling",
+          "value": 374278,
+          "change": 5.1
+        },
+        {
+          "name": "Tennis",
+          "value": 363388,
+          "change": 2.77
+        },
+        {
+          "name": "Swimming and diving",
+          "value": 257405,
+          "change": 0.95
+        },
+        {
+          "name": "Golf",
+          "value": 247742,
+          "change": 4.09
+        },
+        {
+          "name": "Indoor track and field",
+          "value": 160377,
+          "change": 5.71
+        },
+        {
+          "name": "Bowling",
+          "value": 59833,
+          "change": -2.05
+        },
+        {
+          "name": "Weightlifting",
+          "value": 33355,
+          "change": 1.5
+        },
+        {
+          "name": "Badminton",
+          "value": 19563,
+          "change": 2.12
+        },
+        {
+          "name": "Gymnastics",
+          "value": 15131,
+          "change": -0.43
+        },
+        {
+          "name": "Archery",
+          "value": 13018,
+          "change": 4.51
+        },
+        {
+          "name": "Alpine skiing",
+          "value": 9411,
+          "change": -5.84
+        }
+      ]
+    },
+    {
+      "name": "Spirit, esports and other",
+      "palette": [
+        "#d8efe1",
+        "#b2e0c9",
+        "#8fd1b2",
+        "#6cc6a2",
+        "#40bb8f",
+        "#1db884"
+      ],
+      "children": [
+        {
+          "name": "Competitive spirit",
+          "value": 210509,
+          "change": 13.09
+        },
+        {
+          "name": "Unified Sports",
+          "value": 70006,
+          "change": 35.93
+        },
+        {
+          "name": "Dance",
+          "value": 32202,
+          "change": 42.38
+        },
+        {
+          "name": "Esports",
+          "value": 30440,
+          "change": 12.53
+        },
+        {
+          "name": "Bass fishing",
+          "value": 6968,
+          "change": 4.77
+        }
+      ]
+    }
+  ],
+  "annotations": [
+    {
+      "target": "Basketball",
+      "text": [
+        "Basketball still draws nearly",
+        "900,000 athletes but lost",
+        "7,000 in a year."
+      ],
+      "x": 70,
+      "y": 210
+    },
+    {
+      "target": "Wrestling",
+      "text": [
+        "Wrestling hit a record 374,000",
+        "athletes, with girls’ wrestling",
+        "up 15% in one year."
+      ],
+      "x": 72,
+      "y": 1430
+    },
+    {
+      "target": "Esports",
+      "text": [
+        "Esports grew 13%, to more",
+        "than 30,000 students."
+      ],
+      "x": 505,
+      "y": 1430
+    },
+    {
+      "target": "Flag football",
+      "text": [
+        "Flag football grew 59%",
+        "in a single year as",
+        "girls’ programs spread",
+        "to more states."
+      ],
+      "x": 1580,
+      "y": 1245
+    }
+  ]
+}
