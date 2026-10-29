@@ -2,10 +2,10 @@
   "title": "What Developers Use",
   "legendTitle": "Change in % of developers using it (2024 to 2025)",
   "colorDomain": [
-    -6,
-    18
+    -15,
+    15
   ],
-  "unit": " pts",
+  "unit": "%",
   "source": "Stack Overflow Developer Survey 2024 and 2025, all respondents. Value = % of respondents who used it in the past year.",
   "categories": [
     {
@@ -109,7 +109,6 @@
       "children": [
         {
           "name": "Cloud platforms",
-          "highlight": true,
           "children": [
             {
               "name": "AWS",
@@ -270,28 +269,22 @@
       "text": [
         "AWS is still the top cloud",
         "platform but lost the most",
-        "ground, down nearly 5 points."
-      ],
-      "x": 70,
-      "y": 210
+        "ground, down nearly 5%."
+      ]
     },
     {
       "target": "Docker",
       "text": [
-        "Docker use jumped 17 points,",
+        "Docker use jumped 17%,",
         "to 71% of developers."
-      ],
-      "x": 72,
-      "y": 1430
+      ]
     },
     {
-      "target": "MongoDB",
+      "target": "Redis",
       "text": [
-        "MongoDB was the only",
-        "database here to lose users."
-      ],
-      "x": 505,
-      "y": 1430
+        "Redis use rose 8%,",
+        "to 28% of developers."
+      ]
     },
     {
       "target": "PostgreSQL",
@@ -300,9 +293,7 @@
         "more than half of",
         "developers, well ahead",
         "of MySQL at 41%."
-      ],
-      "x": 1580,
-      "y": 1245
+      ]
     }
   ]
 }

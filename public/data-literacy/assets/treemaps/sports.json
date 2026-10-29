@@ -2,8 +2,8 @@
   "title": "High School Sports",
   "legendTitle": "Change in participants (2023–24 to 2024–25)",
   "colorDomain": [
-    -6,
-    12
+    -9,
+    9
   ],
   "unit": "%",
   "source": "NFHS High School Athletics Participation Survey, 2023-24 and 2024-25. Value = combined boys and girls participants in 2024-25.",
@@ -21,7 +21,6 @@
       "children": [
         {
           "name": "Football",
-          "highlight": true,
           "children": [
             {
               "name": "11-player football",
@@ -226,9 +225,7 @@
         "Basketball still draws nearly",
         "900,000 athletes but lost",
         "7,000 in a year."
-      ],
-      "x": 70,
-      "y": 210
+      ]
     },
     {
       "target": "Wrestling",
@@ -236,18 +233,14 @@
         "Wrestling hit a record 374,000",
         "athletes, with girls’ wrestling",
         "up 15% in one year."
-      ],
-      "x": 72,
-      "y": 1430
+      ]
     },
     {
       "target": "Esports",
       "text": [
         "Esports grew 13%, to more",
         "than 30,000 students."
-      ],
-      "x": 505,
-      "y": 1430
+      ]
     },
     {
       "target": "Flag football",
@@ -256,9 +249,7 @@
         "in a single year as",
         "girls’ programs spread",
         "to more states."
-      ],
-      "x": 1580,
-      "y": 1245
+      ]
     }
   ]
 }

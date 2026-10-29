@@ -2,8 +2,8 @@
   "title": "Music Revenue by Format",
   "legendTitle": "Change in revenue (2023 to 2024)",
   "colorDomain": [
-    -20,
-    10
+    -15,
+    15
   ],
   "unit": "%",
   "source": "RIAA 2024 Year-End Revenue Statistics. Value = US estimated retail revenue in $ millions, 2024.",
@@ -31,7 +31,6 @@
         },
         {
           "name": "Ad-supported",
-          "highlight": true,
           "children": [
             {
               "name": "On-demand (ad-supported)",
@@ -132,9 +131,7 @@
         "Paid subscriptions bring in",
         "60% of all US recorded",
         "music revenue."
-      ],
-      "x": 70,
-      "y": 210
+      ]
     },
     {
       "target": "On-demand (ad-supported)",
@@ -142,18 +139,14 @@
         "Ad-supported on-demand",
         "streaming fell 2%, to",
         "$1.8 billion."
-      ],
-      "x": 72,
-      "y": 1430
+      ]
     },
     {
-      "target": "Album downloads",
+      "target": "Single downloads",
       "text": [
         "Album downloads fell 19%",
         "and single downloads 15%."
-      ],
-      "x": 505,
-      "y": 1430
+      ]
     },
     {
       "target": "Vinyl LPs",
@@ -162,9 +155,7 @@
         "its highest since 1984,",
         "outselling CDs 44 million",
         "to 33 million units."
-      ],
-      "x": 1580,
-      "y": 1245
+      ]
     }
   ]
 }

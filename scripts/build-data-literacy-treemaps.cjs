@@ -20,7 +20,7 @@ const write = (name, data) => fs.writeFileSync(path.join(outDir, `${name}.json`)
 write('sports', {
   title: 'High School Sports',
   legendTitle: 'Change in participants (2023–24 to 2024–25)',
-  colorDomain: [-6, 12],
+  colorDomain: [-9, 9],
   unit: '%',
   source: 'NFHS High School Athletics Participation Survey, 2023-24 and 2024-25. Value = combined boys and girls participants in 2024-25.',
   categories: [
@@ -30,7 +30,6 @@ write('sports', {
       children: [
         {
           name: 'Football',
-          highlight: true,
           children: [
             ['11-player football', 1034425, 1035602],
             ['Flag football', 69672, 43954],
@@ -86,10 +85,10 @@ write('sports', {
     },
   ],
   annotations: [
-    { target: "Basketball", text: ["Basketball still draws nearly","900,000 athletes but lost","7,000 in a year."], x: 70, y: 210 },
-    { target: "Wrestling", text: ["Wrestling hit a record 374,000","athletes, with girls’ wrestling","up 15% in one year."], x: 72, y: 1430 },
-    { target: "Esports", text: ["Esports grew 13%, to more","than 30,000 students."], x: 505, y: 1430 },
-    { target: "Flag football", text: ["Flag football grew 59%","in a single year as","girls’ programs spread","to more states."], x: 1580, y: 1245 },
+    { target: "Basketball", text: ["Basketball still draws nearly","900,000 athletes but lost","7,000 in a year."] },
+    { target: "Wrestling", text: ["Wrestling hit a record 374,000","athletes, with girls’ wrestling","up 15% in one year."] },
+    { target: "Esports", text: ["Esports grew 13%, to more","than 30,000 students."] },
+    { target: "Flag football", text: ["Flag football grew 59%","in a single year as","girls’ programs spread","to more states."] },
   ],
 });
 
@@ -97,8 +96,8 @@ write('sports', {
 write('technology', {
   title: 'What Developers Use',
   legendTitle: 'Change in % of developers using it (2024 to 2025)',
-  colorDomain: [-6, 18],
-  unit: ' pts',
+  colorDomain: [-15, 15],
+  unit: '%',
   source: 'Stack Overflow Developer Survey 2024 and 2025, all respondents. Value = % of respondents who used it in the past year.',
   categories: [
     {
@@ -128,7 +127,6 @@ write('technology', {
       children: [
         {
           name: 'Cloud platforms',
-          highlight: true,
           children: [
             ['AWS', 43.3, 48],
             ['Microsoft Azure', 26.3, 27.8],
@@ -171,10 +169,10 @@ write('technology', {
     },
   ],
   annotations: [
-    { target: "AWS", text: ["AWS is still the top cloud","platform but lost the most","ground, down nearly 5 points."], x: 70, y: 210 },
-    { target: "Docker", text: ["Docker use jumped 17 points,","to 71% of developers."], x: 72, y: 1430 },
-    { target: "MongoDB", text: ["MongoDB was the only","database here to lose users."], x: 505, y: 1430 },
-    { target: "PostgreSQL", text: ["PostgreSQL is used by","more than half of","developers, well ahead","of MySQL at 41%."], x: 1580, y: 1245 },
+    { target: "AWS", text: ["AWS is still the top cloud", "platform but lost the most", "ground, down nearly 5%."] },
+    { target: "Docker", text: ["Docker use jumped 17%,", "to 71% of developers."] },
+    { target: "Redis", text: ["Redis use rose 8%,", "to 28% of developers."] },
+    { target: "PostgreSQL", text: ["PostgreSQL is used by","more than half of","developers, well ahead","of MySQL at 41%."] },
   ],
 });
 
@@ -183,7 +181,7 @@ const country = ([name, y2022, y2023]) => ({ name, value: round(y2023 / 1e6, 1),
 write('geography', {
   title: 'Most Populous Countries',
   legendTitle: 'Annual population change (2022 to 2023)',
-  colorDomain: [-1.5, 3],
+  colorDomain: [-3, 3],
   unit: '%',
   source: 'UN World Population Prospects 2024, via Wikipedia "List of countries by population (United Nations)". Value = population in millions, 1 July 2023. 70 most populous countries only.',
   categories: [
@@ -193,7 +191,6 @@ write('geography', {
       children: [
         {
           name: 'East Asia',
-          highlight: true,
           children: [
             ['China', 1425179569, 1422584933],
             ['Japan', 124997578, 124370947],
@@ -286,10 +283,10 @@ write('geography', {
     },
   ],
   annotations: [
-    { target: 'India', text: ['India passed China to become', 'the most populous country,', 'with 1.44 billion people.'], x: 70, y: 210 },
-    { target: 'Ukraine', text: ['Ukraine lost 8% of its', 'population in one year as', 'people fled the war.'], x: 72, y: 1430 },
-    { target: 'Chad', text: ['Chad and Niger grew fastest', 'in Africa, by 4.7% and 3.4%.'], x: 505, y: 1430 },
-    { target: "United States", text: ["The United States is","the third most populous","country, with 343","million people."], x: 1580, y: 1245 },
+    { target: 'India', text: ['India passed China to become', 'the most populous country,', 'with 1.44 billion people.'] },
+    { target: 'Ukraine', text: ['Ukraine lost 8% of its', 'population in one year as', 'people fled the war.'] },
+    { target: 'Somalia', text: ['Somalia grew 3.1% in a year,', 'among the fastest in Africa.'] },
+    { target: "United States", text: ["The United States is","the third most populous","country, with 343","million people."] },
   ],
 });
 
@@ -299,7 +296,7 @@ const stock = ([name, cap, ytd]) => ({ name, value: cap, change: ytd });
 write('stocks', {
   title: 'Largest S&P 500 Companies',
   legendTitle: 'Year-to-date return (as of Oct. 28, 2026)',
-  colorDomain: [-30, 60],
+  colorDomain: [-60, 60],
   unit: '%',
   source: 'Market cap from stockanalysis.com S&P 500 list; YTD return from finviz.com screener; both retrieved 28 Oct 2026. Value = market cap in $ billions.',
   categories: [
@@ -309,7 +306,6 @@ write('stocks', {
       children: [
         {
           name: 'Semiconductors',
-          highlight: true,
           children: [
             ['Nvidia', 5220, 16.46],
             ['Broadcom', 1660, 1.14],
@@ -382,10 +378,10 @@ write('stocks', {
     },
   ],
   annotations: [
-    { target: 'Nvidia', text: ['Nvidia is the largest company', 'in the index, worth over', '$5 trillion.'], x: 70, y: 210 },
-    { target: 'Netflix', text: ['Netflix is down 34% this', 'year, the worst among', 'these companies.'], x: 72, y: 1430 },
-    { target: 'Dell', text: ['Dell’s stock has nearly', 'quadrupled this year.'], x: 505, y: 1430 },
-    { target: "Tesla", text: ["Tesla is down 10% this","year, while Alphabet","is up 3%."], x: 1580, y: 1245 },
+    { target: 'Nvidia', text: ['Nvidia is the largest company', 'in the index, worth over', '$5 trillion.'] },
+    { target: 'Netflix', text: ['Netflix is down 34% this', 'year, the worst among', 'these companies.'] },
+    { target: 'Micron', text: ['Micron’s stock has more', 'than tripled this year.'] },
+    { target: "Tesla", text: ["Tesla is down 10% this","year, while Alphabet","is up 3%."] },
   ],
 });
 
@@ -393,7 +389,7 @@ write('stocks', {
 write('music', {
   title: 'Music Revenue by Format',
   legendTitle: 'Change in revenue (2023 to 2024)',
-  colorDomain: [-20, 10],
+  colorDomain: [-15, 15],
   unit: '%',
   source: 'RIAA 2024 Year-End Revenue Statistics. Value = US estimated retail revenue in $ millions, 2024.',
   categories: [
@@ -405,7 +401,6 @@ write('music', {
         ['Limited-tier subscriptions', 998.3, 1021.4],
         {
           name: 'Ad-supported',
-          highlight: true,
           children: [
             ['On-demand (ad-supported)', 1831.9, 1864.5],
             ['SoundExchange radio', 1054.0, 1004.8],
@@ -438,9 +433,9 @@ write('music', {
     },
   ],
   annotations: [
-    { target: 'Paid subscriptions', text: ['Paid subscriptions bring in', '60% of all US recorded', 'music revenue.'], x: 70, y: 210 },
-    { target: "On-demand (ad-supported)", text: ["Ad-supported on-demand","streaming fell 2%, to","$1.8 billion."], x: 72, y: 1430 },
-    { target: 'Album downloads', text: ['Album downloads fell 19%', 'and single downloads 15%.'], x: 505, y: 1430 },
-    { target: "Vinyl LPs", text: ["Vinyl earned $1.4 billion,","its highest since 1984,","outselling CDs 44 million","to 33 million units."], x: 1580, y: 1245 },
+    { target: 'Paid subscriptions', text: ['Paid subscriptions bring in', '60% of all US recorded', 'music revenue.'] },
+    { target: "On-demand (ad-supported)", text: ["Ad-supported on-demand","streaming fell 2%, to","$1.8 billion."] },
+    { target: 'Single downloads', text: ['Album downloads fell 19%', 'and single downloads 15%.'] },
+    { target: "Vinyl LPs", text: ["Vinyl earned $1.4 billion,","its highest since 1984,","outselling CDs 44 million","to 33 million units."] },
   ],
 });

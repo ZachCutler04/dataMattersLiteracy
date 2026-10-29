@@ -1,7 +1,8 @@
+import { readFileSync } from 'fs';
 import { describe, expect, it } from 'vitest';
 import {
-  balanceLines, colorFor, computeIsoTreemap, faceShade, fitLabel, IsoTreemapData, ORIGIN,
-  projectTop, SIDE, sideExtent,
+  annotationBox, backTabFor, balanceLines, cellOutlines, centeredDomain, HIGHLIGHT_TAB, colorFor, computeIsoTreemap, edgeTarget, faceShade, fitLabel,
+  IsoTreemapData, lengthInside, ORIGIN, Point, projectTop, SIDE, sideExtent, slabSilhouette, SLAB,
 } from '../isoTreemapLayout';
 
 const palette = ['#000001', '#000002', '#000003'];
@@ -54,6 +55,14 @@ describe('projectTop', () => {
     expect(frontY).toBeCloseTo(ORIGIN.y + SIDE);
     expect(leftY).toBeCloseTo(rightY);
     expect(ORIGIN.x - leftX).toBeCloseTo(rightX - ORIGIN.x);
+  });
+});
+
+describe('centeredDomain', () => {
+  it('centers the color scale on 0', () => {
+    expect(centeredDomain([-6, 18])).toEqual([-18, 18]);
+    expect(centeredDomain([-20, 10])).toEqual([-20, 20]);
+    expect(centeredDomain([-3, 3])).toEqual([-3, 3]);
   });
 });
 
@@ -116,6 +125,96 @@ describe('sideExtent', () => {
   });
 });
 
+describe('edgeTarget', () => {
+  const cell = {
+    x0: 100, y0: 100, x1: 300, y1: 300,
+  };
+
+  it('ends just inside the edge nearest the approaching line, not at the centroid', () => {
+    const centroid = projectTop(200, 200);
+    const from: Point = [projectTop(300, 100)[0] + 400, projectTop(300, 100)[1]];
+    const end = edgeTarget(cell, from, 10);
+    const [outline] = cellOutlines(cell);
+    const nearestCorner = Math.min(...outline.map(([x, y]) => Math.hypot(x - end[0], y - end[1])));
+    expect(Math.hypot(end[0] - centroid[0], end[1] - centroid[1])).toBeGreaterThan(50);
+    expect(nearestCorner).toBeLessThan(20);
+  });
+
+  it('can end on the side face of a cell at the front of the slab', () => {
+    const front = {
+      x0: 100, y0: 900, x1: 300, y1: SIDE,
+    };
+    expect(cellOutlines(front)).toHaveLength(2);
+    const below: Point = [projectTop(200, SIDE)[0], projectTop(200, SIDE)[1] + SLAB + 300];
+    const end = edgeTarget(front, below, 10);
+    expect(end[1]).toBeGreaterThan(projectTop(200, SIDE)[1]);
+  });
+});
+
+describe('lengthInside', () => {
+  const square: Point[] = [[0, 0], [10, 0], [10, 10], [0, 10]];
+
+  it('measures the part of a segment inside a convex polygon', () => {
+    expect(lengthInside([-5, 5], [15, 5], square)).toBeCloseTo(10);
+    expect(lengthInside([5, 5], [15, 5], square)).toBeCloseTo(5);
+    expect(lengthInside([-5, -5], [-1, 20], square)).toBe(0);
+  });
+});
+
+describe('leader line routing', () => {
+  // Total length of a route that runs over cells other than its target.
+  const overOtherCells = (points: Point[], target: { x0: number, y0: number, x1: number, y1: number }) => {
+    const silhouette = slabSilhouette();
+    const outlines = cellOutlines(target);
+    return points.slice(1).reduce((sum, point, i) => sum + lengthInside(points[i], point, silhouette)
+      - outlines.reduce((inside, outline) => inside + lengthInside(points[i], point, outline), 0), 0);
+  };
+
+  it('reaches cells on the edge of the slab without crossing other cells', () => {
+    const layout = computeIsoTreemap({
+      ...data,
+      annotations: [{
+        target: 'Alpha', text: ['Note'], x: 1580, y: 1245,
+      }],
+    });
+    const alpha = layout.leaves.find((leaf) => leaf.name === 'Alpha');
+    const { points } = layout.annotations[0];
+    expect(overOtherCells(points, alpha as NonNullable<typeof alpha>)).toBeLessThan(1);
+  });
+
+  it('places notes without a position in distinct open slots', () => {
+    const layout = computeIsoTreemap({
+      ...data,
+      annotations: [
+        { target: 'Alpha', text: ['First'] },
+        { target: 'Gamma', text: ['Second'] },
+        { target: 'Beta', text: ['Fixed'], x: 70, y: 210 },
+      ],
+    });
+    const positions = layout.annotations.map(({ x, y }) => `${x},${y}`);
+    expect(layout.annotations).toHaveLength(3);
+    expect(new Set(positions).size).toBe(3);
+    // The hand-placed note keeps its spot and no automatic note is put on top of it.
+    expect(layout.annotations[2]).toMatchObject({ x: 70, y: 210 });
+    expect(positions.slice(0, 2)).not.toContain('70,210');
+  });
+
+  it('keeps lines off other annotations', () => {
+    const layout = computeIsoTreemap({
+      ...data,
+      annotations: [
+        { target: 'Alpha', text: ['First note'], x: 70, y: 1430 },
+        { target: 'Beta', text: ['Second note in the way'], x: 505, y: 1430 },
+      ],
+    });
+    const box = annotationBox({ text: ['Second note in the way'], x: 505, y: 1430 });
+    const { points } = layout.annotations[0];
+    const overBox = points.slice(1).reduce((sum, point, i) => sum + lengthInside(points[i], point, [
+      [box[0], box[1]], [box[2], box[1]], [box[2], box[3]], [box[0], box[3]]]), 0);
+    expect(overBox).toBe(0);
+  });
+});
+
 describe('computeIsoTreemap', () => {
   const layout = computeIsoTreemap(data);
 
@@ -140,6 +239,30 @@ describe('computeIsoTreemap', () => {
     const span = (segments: { start: number, end: number }[]) => segments.reduce((sum, s) => sum + s.end - s.start, 0);
     expect(span(layout.leftFace)).toBeCloseTo(SIDE);
     expect(span(layout.rightFace)).toBeCloseTo(SIDE);
+  });
+
+  it('hangs back-of-slab highlight labels outside the slab, off the cells', () => {
+    // East Asia sits at the back of the geography slab, away from both side faces.
+    const geography = JSON.parse(readFileSync('public/data-literacy/assets/treemaps/geography.json', 'utf8'));
+    geography.categories[0].children.find((child: { name: string }) => child.name === 'East Asia').highlight = true;
+    const layout = computeIsoTreemap(geography);
+    const [highlight] = layout.highlights;
+    expect(highlight.side).toBeNull();
+    const tab = highlight.backTab as NonNullable<typeof highlight.backTab>;
+    // Entirely beyond a back edge, so it covers no part of the treemap square.
+    expect(tab.y1 <= 0 || tab.x1 <= 0).toBe(true);
+  });
+
+  it('only puts a back tab where a group touches a back edge', () => {
+    expect(backTabFor({
+      x0: 100, y0: 0, x1: 400, y1: 200,
+    })).toMatchObject({ y0: -HIGHLIGHT_TAB, y1: 0, vertical: false });
+    expect(backTabFor({
+      x0: 0, y0: 100, x1: 200, y1: 600,
+    })).toMatchObject({ x0: -HIGHLIGHT_TAB, x1: 0, vertical: true });
+    expect(backTabFor({
+      x0: 100, y0: 100, x1: 200, y1: 200,
+    })).toBeNull();
   });
 
   it('collects highlights, legend rows and resolvable annotations', () => {

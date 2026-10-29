@@ -6,7 +6,7 @@ import {
 import { StimulusParams } from '../../../store/types';
 import { PREFIX } from '../../../utils/Prefix';
 import {
-  ANNOTATION_LINE_HEIGHT, computeIsoTreemap, FaceSegment, IsoTreemapData, LabelFit,
+  ANNOTATION_LINE_HEIGHT, centeredDomain, computeIsoTreemap, HIGHLIGHT_TAB, FaceSegment, IsoTreemapData, LabelFit,
   LEFT_FACE_TRANSFORM, LEGEND_ROW_HEIGHT, LEGEND_TOP, RIGHT_FACE_TRANSFORM, shadowPoints,
   SLAB, TOP_TRANSFORM, WIDTH,
 } from './isoTreemapLayout';
@@ -16,9 +16,10 @@ type IsoTreemapParameters = {
   dataset: string;
 };
 
-const FONT_IMPORT = "@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500&family=Oswald:wght@500&display=swap');";
-const BODY_FONT = "Jost, Futura, 'Century Gothic', sans-serif";
-const TITLE_FONT = "Oswald, 'Arial Narrow', sans-serif";
+const FONT_IMPORT = "@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&family=League+Gothic&display=swap');";
+// Closest Google Fonts to the original's Brandon Grotesque-style labels and condensed title.
+const BODY_FONT = "Outfit, 'Brandon Grotesque', sans-serif";
+const TITLE_FONT = "'League Gothic', 'Arial Narrow', sans-serif";
 const BACKGROUND = '#fbf8f3';
 const SHADOW = '#d7d0bb';
 const HIGHLIGHT = '#29abe2';
@@ -28,7 +29,6 @@ const INK = '#222222';
 const LEGEND_X = 780;
 const SWATCH_WIDTH = 145;
 const SWATCH_HEIGHT = 26;
-const HIGHLIGHT_TAB = 34;
 const TITLE_FONT_SIZE = 56;
 // Keeps the title left of the slab's top corner.
 const TITLE_MAX_WIDTH = 820;
@@ -109,7 +109,7 @@ export function IsoTreemapChart({ dataset }: IsoTreemapParameters) {
   }
 
   const unit = data.unit ?? '%';
-  const [domainMin, domainMax] = data.colorDomain;
+  const [domainMin, domainMax] = centeredDomain(data.colorDomain);
   const binCount = layout.legend[0]?.palette.length ?? 0;
   const ticks = d3.range(binCount + 1).map((i) => domainMin + ((domainMax - domainMin) * i) / binCount);
   const legendRowsTop = LEGEND_TOP + 25;
@@ -126,7 +126,7 @@ export function IsoTreemapChart({ dataset }: IsoTreemapParameters) {
       <style>{FONT_IMPORT}</style>
       <rect width={WIDTH} height={layout.height} fill={BACKGROUND} />
 
-      <text ref={titleRef} x={62} y={95} fontFamily={TITLE_FONT} fontWeight={500} fontSize={title.fontSize} letterSpacing={4} fill={INK}>
+      <text ref={titleRef} x={62} y={95} fontFamily={TITLE_FONT} fontSize={title.fontSize} letterSpacing={5} fill={INK}>
         {data.title.toUpperCase()}
       </text>
       <rect x={62} y={108} width={title.width} height={5} fill={INK} />
@@ -176,6 +176,7 @@ export function IsoTreemapChart({ dataset }: IsoTreemapParameters) {
             textAnchor="middle"
             dominantBaseline="central"
             fontSize={leaf.label.fontSize}
+            fontWeight={300}
             fill={LABEL_COLOR}
           >
             <CenteredLines fit={leaf.label} lineHeight={1.1} />
@@ -192,6 +193,23 @@ export function IsoTreemapChart({ dataset }: IsoTreemapParameters) {
             stroke={HIGHLIGHT}
             strokeWidth={6}
           />
+        ))}
+        {/* Groups away from the side faces hang their tab just beyond the slab's back edge. */}
+        {layout.highlights.map(({ name, label, backTab: tab }) => tab && (
+          <g key={name}>
+            <rect x={tab.x0} y={tab.y0} width={tab.x1 - tab.x0} height={tab.y1 - tab.y0} fill={HIGHLIGHT} />
+            <text
+              transform={`translate(${(tab.x0 + tab.x1) / 2} ${(tab.y0 + tab.y1) / 2})${tab.vertical ? ' rotate(-90)' : ''}`}
+              textAnchor="middle"
+              dominantBaseline="central"
+              fontSize={20}
+              fontWeight={500}
+              letterSpacing={2}
+              fill="#ffffff"
+            >
+              {label}
+            </text>
+          </g>
         ))}
       </g>
 
@@ -217,7 +235,7 @@ export function IsoTreemapChart({ dataset }: IsoTreemapParameters) {
       {layout.annotations.map((annotation) => (
         <g key={annotation.id}>
           <polyline points={annotation.points.join(' ')} fill="none" stroke={INK} strokeWidth={2} />
-          <text x={annotation.x} y={annotation.y} fontSize={31} fill={ANNOTATION_COLOR}>
+          <text x={annotation.x} y={annotation.y} fontSize={31} fontWeight={400} fill={ANNOTATION_COLOR}>
             {annotation.text.map((line, i) => (
               <tspan key={line} x={annotation.x} y={annotation.y + i * ANNOTATION_LINE_HEIGHT}>{line}</tspan>
             ))}
