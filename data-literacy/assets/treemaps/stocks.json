@@ -2,7 +2,7 @@
   "title": "Largest S&P 500 Companies",
   "legendTitle": "Year-to-date return (as of Oct. 28, 2026)",
   "colorDomain": [
-    -30,
+    -60,
     60
   ],
   "unit": "%",
@@ -21,7 +21,6 @@
       "children": [
         {
           "name": "Semiconductors",
-          "highlight": true,
           "children": [
             {
               "name": "Nvidia",
@@ -308,9 +307,7 @@
         "Nvidia is the largest company",
         "in the index, worth over",
         "$5 trillion."
-      ],
-      "x": 70,
-      "y": 210
+      ]
     },
     {
       "target": "Netflix",
@@ -318,18 +315,14 @@
         "Netflix is down 34% this",
         "year, the worst among",
         "these companies."
-      ],
-      "x": 72,
-      "y": 1430
+      ]
     },
     {
-      "target": "Dell",
+      "target": "Micron",
       "text": [
-        "Dell’s stock has nearly",
-        "quadrupled this year."
-      ],
-      "x": 505,
-      "y": 1430
+        "Micron’s stock has more",
+        "than tripled this year."
+      ]
     },
     {
       "target": "Tesla",
@@ -337,9 +330,7 @@
         "Tesla is down 10% this",
         "year, while Alphabet",
         "is up 3%."
-      ],
-      "x": 1580,
-      "y": 1245
+      ]
     }
   ]
 }

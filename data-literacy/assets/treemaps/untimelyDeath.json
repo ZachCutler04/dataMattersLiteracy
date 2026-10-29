@@ -30,7 +30,6 @@
         },
         {
           "name": "Cancer",
-          "highlight": true,
           "children": [
             {
               "name": "Lung",
@@ -337,9 +336,7 @@
         "and treatable disease—",
         "is one of the biggest killers",
         "of children."
-      ],
-      "x": 70,
-      "y": 210
+      ]
     },
     {
       "target": "War",
@@ -347,18 +344,6 @@
         "War casualties account for",
         "just 0.05 percent of total",
         "life-years lost annually."
-      ],
-      "x": 72,
-      "y": 1430,
-      "elbows": [
-        [
-          50,
-          1362
-        ],
-        [
-          280,
-          1362
-        ]
       ]
     },
     {
@@ -367,14 +352,6 @@
         "Natural disasters are by",
         "far the fastest-growing con-",
         "tributor to the death toll."
-      ],
-      "x": 505,
-      "y": 1430,
-      "elbows": [
-        [
-          483,
-          1362
-        ]
       ]
     },
     {
@@ -388,9 +365,7 @@
         "people, the cost in",
         "years of life lost is",
         "relatively small."
-      ],
-      "x": 1580,
-      "y": 1245
+      ]
     }
   ]
 }

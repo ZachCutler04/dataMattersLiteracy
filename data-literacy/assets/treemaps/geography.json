@@ -2,7 +2,7 @@
   "title": "Most Populous Countries",
   "legendTitle": "Annual population change (2022 to 2023)",
   "colorDomain": [
-    -1.5,
+    -3,
     3
   ],
   "unit": "%",
@@ -21,7 +21,6 @@
       "children": [
         {
           "name": "East Asia",
-          "highlight": true,
           "children": [
             {
               "name": "China",
@@ -412,9 +411,7 @@
         "India passed China to become",
         "the most populous country,",
         "with 1.44 billion people."
-      ],
-      "x": 70,
-      "y": 210
+      ]
     },
     {
       "target": "Ukraine",
@@ -422,18 +419,14 @@
         "Ukraine lost 8% of its",
         "population in one year as",
         "people fled the war."
-      ],
-      "x": 72,
-      "y": 1430
+      ]
     },
     {
-      "target": "Chad",
+      "target": "Somalia",
       "text": [
-        "Chad and Niger grew fastest",
-        "in Africa, by 4.7% and 3.4%."
-      ],
-      "x": 505,
-      "y": 1430
+        "Somalia grew 3.1% in a year,",
+        "among the fastest in Africa."
+      ]
     },
     {
       "target": "United States",
@@ -442,9 +435,7 @@
         "the third most populous",
         "country, with 343",
         "million people."
-      ],
-      "x": 1580,
-      "y": 1245
+      ]
     }
   ]
 }
