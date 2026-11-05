@@ -9,10 +9,10 @@
 You are being asked to participate in a research study. Before you agree, however, you must be fully informed about the purpose of the study, the procedures to be followed, and any benefits, risks or discomfort that you may experience as a result of your participation. This form presents information about the study so that you may make a fully informed decision regarding your participation.
 
 ## Purpose of the Study
-Visual representations of data (visualizations) are increasingly common in everyday life. The purpose of this study is to learn more about how people interpret and understand visualizations, especially correlation values.
+Visual representations of data (visualizations) are increasingly common in everyday life. The purpose of this study is to learn more about how people interpret, understand, and critique visualizations.
 
 ## Tasks
-The study contains 3 sets of tasks, shown to you in a random order. One set will ask you to critique data visualizations which are presented. Another set will ask you to sketch data visualizations on your device, given a small amount of data. The last task will ask you quiz-like multiple choice questions which can be answered from a presented data visualization. It will take approximately 40-50 minutes to finish this study. For many of these tasks we will request that you think-aloud while completing the task, and we will record and save your audio.
+First, you will rate how interested you are in five broad topics and complete a short microphone check. You will then be shown two data visualizations and asked to critique each one. While critiquing, we will ask you to think aloud, and we will record and save your audio. It will take approximately 10-15 minutes to finish this study.
 
 ## Risks to study participants
 Each participant in this study is assigned a random ID for analyses. As such, your participation will remain anonymous and your responses will not be used to identify you.
@@ -44,7 +44,7 @@ Your information will be kept by Dr. Alexander Lex who manages the data reposito
 ## Do I have to allow my information to be saved for future research?
 If you do not want your information to be saved for future research, you should not participate in this study.
 ## Will my information be personally identifiable?
-The information kept from you will not have your name or other personal information linked to it. Your de-identified information may be shared with researchers at the University of Utah and at other institutions without additional informed consent from you or your legally authorized representative. The only information we will keep is information like your age.
+The information kept from you will not have your name or other personal information linked to it. Your de-identified information may be shared with researchers at the University of Utah and at other institutions without additional informed consent from you or your legally authorized representative. The only information we will keep about you is your study responses, such as your ratings of how interested you are in different topics.
 
 ## What if I want to withdraw my information from the data repository?
 If you contact us via the platform which you were recruited from, you may request to have your data removed at any time, at which point we will delete your audio recordings.

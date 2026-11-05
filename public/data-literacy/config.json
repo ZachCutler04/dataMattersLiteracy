@@ -116,12 +116,6 @@
         }
       ]
     },
-    "critiqueIntro": {
-      "type": "markdown",
-      "recordAudio": false,
-      "path": "data-literacy/assets/critiqueIntro.md",
-      "response": []
-    },
     "critiqueTreemapHigh": {
       "type": "react-component",
       "withProgressBar": true,
@@ -233,7 +227,6 @@
       {
         "id": "critiquePart",
         "components": [
-          "critiqueIntro",
           {
             "id": "critiqueCharts",
             "order": "latinSquare",
