@@ -341,10 +341,6 @@
           ]
         ]
       }
-    ],
-    "note": [
-      "Data: RIAA Year-End Revenue Statistics, 2015-2024 reports (US estimated retail value, $ millions; each year from its most recent report).",
-      "Dashed = trend of the last 8 data points; shaded band is a fixed-width illustration, not a statistical interval."
     ]
   }
 }

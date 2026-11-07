@@ -329,17 +329,17 @@
       ]
     },
     {
-      "target": "Eli Lilly",
+      "target": "ExxonMobil",
       "text": [
-        "Eli Lilly shares rose 26%,",
-        "making it a $1.2 trillion company."
+        "ExxonMobil shares rose",
+        "43% over the past year."
       ]
     },
     {
-      "target": "Alphabet",
+      "target": "Tesla",
       "text": [
-        "Alphabet is worth $3.5 trillion",
-        "but its shares fell 11%."
+        "Tesla shares fell 17%",
+        "over the past year."
       ]
     },
     {
@@ -599,10 +599,6 @@
           ]
         ]
       }
-    ],
-    "note": [
-      "Data: Yahoo Finance, year-end closing prices adjusted for splits; latest point is 2026-11-07.",
-      "Dashed = trend of the last 8 data points; shaded band is a fixed-width illustration, not a statistical interval."
     ]
   }
 }

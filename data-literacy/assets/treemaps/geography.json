@@ -409,10 +409,10 @@
       ]
     },
     {
-      "target": "Italy",
+      "target": "Ukraine",
       "text": [
-        "Italy, Japan and Poland",
-        "all lost population."
+        "Ukraine lost 18% of its",
+        "population in ten years."
       ]
     },
     {
@@ -855,10 +855,6 @@
           ]
         ]
       }
-    ],
-    "note": [
-      "Data: World Bank, World Development Indicators, Population, total (SP.POP.TOTL).",
-      "Dashed = trend of the last 8 data points; shaded band is a fixed-width illustration, not a statistical interval."
     ]
   }
 }

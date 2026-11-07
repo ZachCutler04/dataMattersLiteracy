@@ -209,10 +209,10 @@
       ]
     },
     {
-      "target": "Swimming and diving",
+      "target": "Dance",
       "text": [
-        "Swimming and diving",
-        "lost 18% of its athletes."
+        "Dance lost a quarter",
+        "of its athletes."
       ]
     },
     {
@@ -393,10 +393,6 @@
           ]
         ]
       }
-    ],
-    "note": [
-      "Data: NFHS High School Athletics Participation Surveys, 2015-16 through 2025-26 (no survey in 2019-20 or 2020-21).",
-      "Dashed = trend of the last 8 data points; shaded band is a fixed-width illustration, not a statistical interval."
     ]
   }
 }
