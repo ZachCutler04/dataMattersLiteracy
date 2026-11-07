@@ -1,0 +1,1 @@
+function e(e,t){let n,r;if(t===void 0)for(let t of e)t!=null&&(n===void 0?t>=t&&(n=r=t):(n>t&&(n=t),r<t&&(r=t)));else{let i=-1;for(let a of e)(a=t(a,++i,e))!=null&&(n===void 0?a>=a&&(n=r=a):(n>a&&(n=a),r<a&&(r=a)))}return[n,r]}function t(e,t){e=e.slice();var n=0,r=e.length-1,i=e[n],a=e[r],o;return a<i&&(o=n,n=r,r=o,o=i,i=a,a=o),e[n]=t.floor(i),e[r]=t.ceil(a),e}export{e as n,t};

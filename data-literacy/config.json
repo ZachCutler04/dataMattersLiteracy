@@ -20,7 +20,7 @@
     "withSidebar": true,
     "windowEventDebounceTime": 200,
     "participantNameField": "introduction.prolificId",
-    "studyEndMsg": "Thank you for completing the study.",
+    "studyEndMsg": "**Thank you for completing the study!**\n\nYour completion code is **C14O0C6K**.\n\n[Click here to return to Prolific and confirm your submission](https://app.prolific.com/submissions/complete?cc=C14O0C6K). If the link does not work, enter the code above in Prolific.",
     "urlParticipantIdParam": "PROLIFIC_PID",
     "recordAudio": true,
     "showTitleBar": false,
@@ -67,52 +67,36 @@
     "topicInterest": {
       "type": "questionnaire",
       "recordAudio": false,
-      "description": "Participant's interest in five broad topic categories.",
+      "description": "Participant ranks five data topics from most to least interesting.",
       "response": [
         {
-          "id": "interestSports",
-          "type": "likert",
+          "id": "topicRanking",
+          "type": "ranking-sublist",
           "required": true,
-          "numItems": 7,
-          "prompt": "How interested are you in **sports**?",
-          "leftLabel": "Not at all interested",
-          "rightLabel": "Extremely interested"
-        },
-        {
-          "id": "interestTechnology",
-          "type": "likert",
-          "required": true,
-          "numItems": 7,
-          "prompt": "How interested are you in **technology**?",
-          "leftLabel": "Not at all interested",
-          "rightLabel": "Extremely interested"
-        },
-        {
-          "id": "interestGeography",
-          "type": "likert",
-          "required": true,
-          "numItems": 7,
-          "prompt": "How interested are you in **geography**?",
-          "leftLabel": "Not at all interested",
-          "rightLabel": "Extremely interested"
-        },
-        {
-          "id": "interestStocks",
-          "type": "likert",
-          "required": true,
-          "numItems": 7,
-          "prompt": "How interested are you in **stocks**?",
-          "leftLabel": "Not at all interested",
-          "rightLabel": "Extremely interested"
-        },
-        {
-          "id": "interestMusic",
-          "type": "likert",
-          "required": true,
-          "numItems": 7,
-          "prompt": "How interested are you in **music**?",
-          "leftLabel": "Not at all interested",
-          "rightLabel": "Extremely interested"
+          "numItems": 5,
+          "prompt": "Rank these topics from **most interesting** (top) to **least interesting** (bottom). Drag all five into your ranking.",
+          "options": [
+            {
+              "label": "High school sports: which sports students play",
+              "value": "sports"
+            },
+            {
+              "label": "Social media: which platforms Americans use",
+              "value": "technology"
+            },
+            {
+              "label": "World population: the most populous countries",
+              "value": "geography"
+            },
+            {
+              "label": "The stock market: the largest companies and their share prices",
+              "value": "stocks"
+            },
+            {
+              "label": "The music industry: revenue from streaming, vinyl, CDs and downloads",
+              "value": "music"
+            }
+          ]
         }
       ]
     },

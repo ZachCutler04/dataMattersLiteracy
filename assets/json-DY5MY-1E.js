@@ -1,0 +1,1 @@
+function e(e){if(!e.ok)throw Error(e.status+` `+e.statusText);if(e.status!==204&&e.status!==205)return e.json()}function t(t,n){return fetch(t,n).then(e)}export{t};

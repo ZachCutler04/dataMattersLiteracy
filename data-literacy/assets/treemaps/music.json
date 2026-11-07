@@ -1,12 +1,12 @@
 {
   "title": "Music Revenue by Format",
-  "legendTitle": "Change in revenue (2023 to 2024)",
+  "legendTitle": "Change in revenue (2014 to 2024)",
   "colorDomain": [
-    -15,
-    15
+    -90,
+    90
   ],
   "unit": "%",
-  "source": "RIAA 2024 Year-End Revenue Statistics. Value = US estimated retail revenue in $ millions, 2024.",
+  "source": "RIAA Year-End Revenue Statistics, 2015-2024 reports (US estimated retail value, $ millions; each year from its most recent report). Value = US revenue in $ millions, 2024.",
   "categories": [
     {
       "name": "Streaming",
@@ -21,38 +21,23 @@
       "children": [
         {
           "name": "Paid subscriptions",
-          "value": 10687,
-          "change": 5.29
+          "value": 11685.3,
+          "change": 1360.5
         },
         {
-          "name": "Limited-tier subscriptions",
-          "value": 998.3,
-          "change": -2.26
+          "name": "Ad-supported streaming",
+          "value": 1831.9,
+          "change": 521.4
         },
         {
-          "name": "Ad-supported",
-          "children": [
-            {
-              "name": "On-demand (ad-supported)",
-              "value": 1831.9,
-              "change": -1.75
-            },
-            {
-              "name": "SoundExchange radio",
-              "value": 1054,
-              "change": 4.9
-            },
-            {
-              "name": "Other ad-supported",
-              "value": 306.5,
-              "change": -3.53
-            }
-          ]
+          "name": "Digital radio",
+          "value": 1360.5,
+          "change": 75.9
         }
       ]
     },
     {
-      "name": "Physical",
+      "name": "Downloads",
       "palette": [
         "#f7ee6d",
         "#fdd451",
@@ -63,30 +48,30 @@
       ],
       "children": [
         {
-          "name": "Vinyl LPs",
-          "value": 1442.9,
-          "change": 6.87
+          "name": "Download singles",
+          "value": 162.4,
+          "change": -88.5
         },
         {
-          "name": "CDs",
-          "value": 541.1,
-          "change": 0.74
+          "name": "Download albums",
+          "value": 166.7,
+          "change": -85.5
         },
         {
-          "name": "Other physical",
-          "value": 21.7,
-          "change": 55
+          "name": "Ringtones",
+          "value": 5.6,
+          "change": -91.6
         },
         {
-          "name": "Music video",
-          "value": 8.9,
-          "change": -16.82
+          "name": "Other downloads",
+          "value": 35.1,
+          "change": 116.7
         }
       ]
     },
     {
-      "name": "Downloads and licensing",
-      "legendLabel": "Downloads, licensing",
+      "name": "Physical and licensing",
+      "legendLabel": "Physical, licensing",
       "palette": [
         "#d8efe1",
         "#b2e0c9",
@@ -97,29 +82,29 @@
       ],
       "children": [
         {
+          "name": "CDs",
+          "value": 541.1,
+          "change": -70.5
+        },
+        {
+          "name": "Vinyl records",
+          "value": 1442.9,
+          "change": 358.2
+        },
+        {
+          "name": "Music videos",
+          "value": 8.9,
+          "change": -90.2
+        },
+        {
+          "name": "Other physical",
+          "value": 21.7,
+          "change": 72.2
+        },
+        {
           "name": "Sync licensing",
           "value": 412.6,
-          "change": 2.51
-        },
-        {
-          "name": "Album downloads",
-          "value": 166.7,
-          "change": -18.64
-        },
-        {
-          "name": "Single downloads",
-          "value": 162.4,
-          "change": -14.88
-        },
-        {
-          "name": "Other digital",
-          "value": 35.1,
-          "change": 24.91
-        },
-        {
-          "name": "Ringtones",
-          "value": 5.6,
-          "change": -46.67
+          "change": 117.5
         }
       ]
     }
@@ -128,34 +113,238 @@
     {
       "target": "Paid subscriptions",
       "text": [
-        "Paid subscriptions bring in",
-        "60% of all US recorded",
-        "music revenue."
+        "Paid subscriptions grew",
+        "more than 14-fold and now",
+        "bring in two-thirds of revenue."
       ]
     },
     {
-      "target": "On-demand (ad-supported)",
+      "target": "Download albums",
       "text": [
-        "Ad-supported on-demand",
-        "streaming fell 2%, to",
-        "$1.8 billion."
+        "Album downloads fell 86%",
+        "and singles 88%."
       ]
     },
     {
-      "target": "Single downloads",
+      "target": "Vinyl records",
       "text": [
-        "Album downloads fell 19%",
-        "and single downloads 15%."
+        "Vinyl revenue grew 4.6 times,",
+        "while CDs fell 70%."
       ]
     },
     {
-      "target": "Vinyl LPs",
+      "target": "Sync licensing",
       "text": [
-        "Vinyl earned $1.4 billion,",
-        "its highest since 1984,",
-        "outselling CDs 44 million",
-        "to 33 million units."
+        "Licensing music for film, TV",
+        "and ads more than doubled."
       ]
     }
-  ]
+  ],
+  "line": {
+    "title": "Music revenue by format",
+    "yLabel": "US revenue ($ millions)",
+    "scale": "log",
+    "series": [
+      {
+        "name": "All formats",
+        "points": [
+          [
+            2014,
+            6950.5
+          ],
+          [
+            2015,
+            7015.9
+          ],
+          [
+            2016,
+            7485.7
+          ],
+          [
+            2017,
+            8722.8
+          ],
+          [
+            2018,
+            9846.1
+          ],
+          [
+            2019,
+            11111.6
+          ],
+          [
+            2020,
+            12144.7
+          ],
+          [
+            2021,
+            14988.6
+          ],
+          [
+            2022,
+            15893.2
+          ],
+          [
+            2023,
+            17106.8
+          ],
+          [
+            2024,
+            17674.6
+          ]
+        ]
+      },
+      {
+        "name": "Streaming",
+        "points": [
+          [
+            2014,
+            1868.3
+          ],
+          [
+            2015,
+            2406.6
+          ],
+          [
+            2016,
+            3962.2
+          ],
+          [
+            2017,
+            5664.5
+          ],
+          [
+            2018,
+            7366.8
+          ],
+          [
+            2019,
+            8831.3
+          ],
+          [
+            2020,
+            10051.3
+          ],
+          [
+            2021,
+            12443.1
+          ],
+          [
+            2022,
+            13285
+          ],
+          [
+            2023,
+            14358.1
+          ],
+          [
+            2024,
+            14877.7
+          ]
+        ]
+      },
+      {
+        "name": "Vinyl records",
+        "points": [
+          [
+            2014,
+            314.9
+          ],
+          [
+            2015,
+            416.2
+          ],
+          [
+            2016,
+            355.4
+          ],
+          [
+            2017,
+            388.5
+          ],
+          [
+            2018,
+            419.2
+          ],
+          [
+            2019,
+            497.6
+          ],
+          [
+            2020,
+            643.9
+          ],
+          [
+            2021,
+            1037.7
+          ],
+          [
+            2022,
+            1224.4
+          ],
+          [
+            2023,
+            1350.2
+          ],
+          [
+            2024,
+            1442.9
+          ]
+        ]
+      },
+      {
+        "name": "Downloads",
+        "points": [
+          [
+            2014,
+            2641.2
+          ],
+          [
+            2015,
+            2382.3
+          ],
+          [
+            2016,
+            1767
+          ],
+          [
+            2017,
+            1330.7
+          ],
+          [
+            2018,
+            1039.1
+          ],
+          [
+            2019,
+            855.7
+          ],
+          [
+            2020,
+            664.7
+          ],
+          [
+            2021,
+            586.8
+          ],
+          [
+            2022,
+            494.7
+          ],
+          [
+            2023,
+            434.3
+          ],
+          [
+            2024,
+            369.8
+          ]
+        ]
+      }
+    ],
+    "note": [
+      "Data: RIAA Year-End Revenue Statistics, 2015-2024 reports (US estimated retail value, $ millions; each year from its most recent report).",
+      "Dashed = trend of the last 8 data points; shaded band is a fixed-width illustration, not a statistical interval."
+    ]
+  }
 }

@@ -1,15 +1,15 @@
 {
-  "title": "What Developers Use",
-  "legendTitle": "Change in % of developers using it (2024 to 2025)",
+  "title": "Social Media Use",
+  "legendTitle": "Change in % of US adults using it (2021 to 2026)",
   "colorDomain": [
     -15,
     15
   ],
   "unit": "%",
-  "source": "Stack Overflow Developer Survey 2024 and 2025, all respondents. Value = % of respondents who used it in the past year.",
+  "source": "Pew Research Center, Social Media Fact Sheet (surveys of US adults, 2012-2026). Value = % of US adults who say they ever use the platform in the latest survey (2026, or 2025 for Threads and Bluesky). Platforms launched after 2021 count as 0% in 2021. Pinterest is left out because it has no 2025-26 data.",
   "categories": [
     {
-      "name": "Languages",
+      "name": "Video and photo sharing",
       "palette": [
         "#f8dce9",
         "#f5bad5",
@@ -20,84 +20,30 @@
       ],
       "children": [
         {
-          "name": "JavaScript",
-          "value": 66,
-          "change": 3.7
+          "name": "YouTube",
+          "value": 84,
+          "change": 3
         },
         {
-          "name": "HTML/CSS",
-          "value": 61.9,
-          "change": 9
+          "name": "Instagram",
+          "value": 51,
+          "change": 11
         },
         {
-          "name": "SQL",
-          "value": 58.6,
-          "change": 7.6
+          "name": "TikTok",
+          "value": 37,
+          "change": 16
         },
         {
-          "name": "Python",
-          "value": 57.9,
-          "change": 6.9
-        },
-        {
-          "name": "Bash/Shell",
-          "value": 48.7,
-          "change": 14.8
-        },
-        {
-          "name": "TypeScript",
-          "value": 43.6,
-          "change": 5.1
-        },
-        {
-          "name": "Java",
-          "value": 29.4,
-          "change": -0.9
-        },
-        {
-          "name": "C#",
-          "value": 27.8,
-          "change": 0.7
-        },
-        {
-          "name": "C++",
-          "value": 23.5,
-          "change": 0.5
-        },
-        {
-          "name": "PowerShell",
-          "value": 23.2,
-          "change": 9.4
-        },
-        {
-          "name": "C",
-          "value": 22,
-          "change": 1.7
-        },
-        {
-          "name": "PHP",
-          "value": 18.9,
-          "change": 0.7
-        },
-        {
-          "name": "Go",
-          "value": 16.4,
-          "change": 2.9
-        },
-        {
-          "name": "Rust",
-          "value": 14.8,
-          "change": 2.2
-        },
-        {
-          "name": "Kotlin",
-          "value": 10.8,
-          "change": 1.4
+          "name": "Snapchat",
+          "value": 26,
+          "change": 1
         }
       ]
     },
     {
-      "name": "Tools and cloud",
+      "name": "Social networks and messaging",
+      "legendLabel": "Networks and messaging",
       "palette": [
         "#f7ee6d",
         "#fdd451",
@@ -108,84 +54,39 @@
       ],
       "children": [
         {
-          "name": "Cloud platforms",
-          "children": [
-            {
-              "name": "AWS",
-              "value": 43.3,
-              "change": -4.7
-            },
-            {
-              "name": "Microsoft Azure",
-              "value": 26.3,
-              "change": -1.5
-            },
-            {
-              "name": "Google Cloud",
-              "value": 24.6,
-              "change": -0.5
-            },
-            {
-              "name": "Cloudflare",
-              "value": 20.1,
-              "change": 5
-            }
-          ]
+          "name": "Facebook",
+          "value": 70,
+          "change": 1
         },
         {
-          "name": "Docker",
-          "value": 71.1,
-          "change": 17.2
+          "name": "WhatsApp",
+          "value": 33,
+          "change": 10
         },
         {
-          "name": "npm",
-          "value": 56.8,
-          "change": 7.2
+          "name": "LinkedIn",
+          "value": 31,
+          "change": 3
         },
         {
-          "name": "Pip",
-          "value": 40.9,
-          "change": 8.5
+          "name": "Reddit",
+          "value": 25,
+          "change": 7
         },
         {
-          "name": "Kubernetes",
-          "value": 28.5,
-          "change": 9.1
+          "name": "X (Twitter)",
+          "value": 18,
+          "change": -5
         },
         {
-          "name": "Homebrew",
-          "value": 25.7,
-          "change": 3.4
-        },
-        {
-          "name": "Vite",
-          "value": 25.4,
-          "change": 5.5
-        },
-        {
-          "name": "Make",
-          "value": 23.2,
-          "change": 2.4
-        },
-        {
-          "name": "Yarn",
-          "value": 21.1,
-          "change": 2.3
-        },
-        {
-          "name": "NuGet",
-          "value": 18.9,
-          "change": 2.8
-        },
-        {
-          "name": "Webpack",
-          "value": 18.4,
-          "change": 0
+          "name": "Nextdoor",
+          "value": 18,
+          "change": 5
         }
       ]
     },
     {
-      "name": "Databases",
+      "name": "Launched since 2022",
       "palette": [
         "#d8efe1",
         "#b2e0c9",
@@ -196,104 +97,284 @@
       ],
       "children": [
         {
-          "name": "PostgreSQL",
-          "value": 55.6,
-          "change": 6.9
-        },
-        {
-          "name": "MySQL",
-          "value": 40.5,
-          "change": 0.2
-        },
-        {
-          "name": "SQLite",
-          "value": 37.5,
-          "change": 4.4
-        },
-        {
-          "name": "Microsoft SQL Server",
-          "value": 30.1,
-          "change": 4.8
-        },
-        {
-          "name": "Redis",
-          "value": 28,
+          "name": "Threads",
+          "value": 8,
           "change": 8
         },
         {
-          "name": "MongoDB",
-          "value": 24,
-          "change": -0.8
+          "name": "Bluesky",
+          "value": 4,
+          "change": 4
         },
         {
-          "name": "MariaDB",
-          "value": 22.5,
-          "change": 5.3
-        },
-        {
-          "name": "Elasticsearch",
-          "value": 16.7,
-          "change": 4.2
-        },
-        {
-          "name": "Oracle",
-          "value": 10.6,
-          "change": 0.5
-        },
-        {
-          "name": "DynamoDB",
-          "value": 9.8,
-          "change": 1.9
-        },
-        {
-          "name": "BigQuery",
-          "value": 6.5,
-          "change": 1.7
-        },
-        {
-          "name": "Supabase",
-          "value": 6,
-          "change": 2
-        },
-        {
-          "name": "Cloud Firestore",
-          "value": 5.7,
-          "change": 0.3
+          "name": "Truth Social",
+          "value": 4,
+          "change": 4
         }
       ]
     }
   ],
   "annotations": [
     {
-      "target": "AWS",
+      "target": "Instagram",
       "text": [
-        "AWS is still the top cloud",
-        "platform but lost the most",
-        "ground, down nearly 5%."
+        "Instagram now reaches half",
+        "of US adults, up from 40%."
       ]
     },
     {
-      "target": "Docker",
+      "target": "X (Twitter)",
       "text": [
-        "Docker use jumped 17%,",
-        "to 71% of developers."
+        "X (Twitter) lost users, falling",
+        "from 23% to 18% of adults."
       ]
     },
     {
-      "target": "Redis",
+      "target": "YouTube",
       "text": [
-        "Redis use rose 8%,",
-        "to 28% of developers."
+        "YouTube reaches 84% of",
+        "US adults."
       ]
     },
     {
-      "target": "PostgreSQL",
+      "target": "Threads",
       "text": [
-        "PostgreSQL is used by",
-        "more than half of",
-        "developers, well ahead",
-        "of MySQL at 41%."
+        "Threads reached 8% of",
+        "adults within two years",
+        "of launching."
       ]
     }
-  ]
+  ],
+  "line": {
+    "title": "Social media use",
+    "yLabel": "% of US adults using it",
+    "scale": "linear",
+    "yDomain": [
+      0,
+      100
+    ],
+    "unit": "%",
+    "series": [
+      {
+        "name": "Facebook",
+        "points": [
+          [
+            2012.6,
+            54
+          ],
+          [
+            2012.96,
+            57
+          ],
+          [
+            2013.71,
+            57
+          ],
+          [
+            2014.72,
+            58
+          ],
+          [
+            2015.28,
+            62
+          ],
+          [
+            2016.26,
+            68
+          ],
+          [
+            2018.03,
+            68
+          ],
+          [
+            2019.1,
+            69
+          ],
+          [
+            2021.11,
+            69
+          ],
+          [
+            2023.68,
+            68
+          ],
+          [
+            2024.44,
+            70
+          ],
+          [
+            2025.47,
+            71
+          ],
+          [
+            2026.47,
+            70
+          ]
+        ]
+      },
+      {
+        "name": "Instagram",
+        "points": [
+          [
+            2012.6,
+            9
+          ],
+          [
+            2012.94,
+            11
+          ],
+          [
+            2013.71,
+            14
+          ],
+          [
+            2014.72,
+            21
+          ],
+          [
+            2015.28,
+            24
+          ],
+          [
+            2016.26,
+            28
+          ],
+          [
+            2018.03,
+            35
+          ],
+          [
+            2019.1,
+            37
+          ],
+          [
+            2021.11,
+            40
+          ],
+          [
+            2023.68,
+            47
+          ],
+          [
+            2024.44,
+            50
+          ],
+          [
+            2025.47,
+            50
+          ],
+          [
+            2026.47,
+            51
+          ]
+        ]
+      },
+      {
+        "name": "TikTok",
+        "points": [
+          [
+            2021.11,
+            21
+          ],
+          [
+            2023.68,
+            33
+          ],
+          [
+            2024.44,
+            33
+          ],
+          [
+            2025.47,
+            37
+          ],
+          [
+            2026.47,
+            37
+          ]
+        ]
+      },
+      {
+        "name": "X (Twitter)",
+        "points": [
+          [
+            2012.6,
+            13
+          ],
+          [
+            2012.6,
+            14
+          ],
+          [
+            2012.94,
+            13
+          ],
+          [
+            2013.39,
+            15
+          ],
+          [
+            2013.54,
+            16
+          ],
+          [
+            2013.71,
+            14
+          ],
+          [
+            2013.75,
+            16
+          ],
+          [
+            2014.07,
+            16
+          ],
+          [
+            2014.72,
+            19
+          ],
+          [
+            2015.28,
+            20
+          ],
+          [
+            2016.26,
+            21
+          ],
+          [
+            2018.03,
+            24
+          ],
+          [
+            2019.1,
+            22
+          ],
+          [
+            2021.11,
+            23
+          ],
+          [
+            2023.68,
+            22
+          ],
+          [
+            2024.44,
+            21
+          ],
+          [
+            2025.47,
+            21
+          ],
+          [
+            2026.47,
+            18
+          ]
+        ]
+      }
+    ],
+    "note": [
+      "Data: Pew Research Center, Social Media Fact Sheet (surveys of US adults, 2012-2026).",
+      "Dashed = trend of the last 8 data points; shaded band is a fixed-width illustration, not a statistical interval."
+    ]
+  }
 }
