@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { ParticipantData } from '../../../../parser/types';
 import {
-  rankTopics, readTopicInterest, selectTopic, TOPICS,
+  rankTopics, readSeenCharts, readTopicInterest, selectTopic, TOPICS,
 } from '../topicSelection';
 
 function answersWith(topicRanking: unknown, startTime = 1234): ParticipantData['answers'] {
@@ -65,5 +65,23 @@ describe('selectTopic', () => {
 describe('rankTopics', () => {
   it('returns every topic once', () => {
     expect([...rankTopics({ ranks: {}, seed: 99 })].sort()).toEqual([...TOPICS].sort());
+  });
+});
+
+describe('readSeenCharts', () => {
+  it('lists the critiqued charts in the order they were seen', () => {
+    const answers = {
+      topicInterest_2: { componentName: 'topicInterest', answer: { topicRanking: {} }, startTime: 5 },
+      critiqueLineLow_6: { componentName: 'critiqueLineLow', answer: { shownTopic: 'stocks', shownChart: 'line' }, startTime: 30 },
+      critiqueTreemapHigh_5: { componentName: 'critiqueTreemapHigh', answer: { shownTopic: 'music', shownChart: 'treemap' }, startTime: 20 },
+    } as unknown as ParticipantData['answers'];
+    expect(readSeenCharts(answers)).toEqual([
+      { topic: 'music', chart: 'treemap' },
+      { topic: 'stocks', chart: 'line' },
+    ]);
+  });
+
+  it('returns nothing before any chart is seen', () => {
+    expect(readSeenCharts({})).toEqual([]);
   });
 });

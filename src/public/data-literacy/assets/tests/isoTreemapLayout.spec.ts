@@ -1,3 +1,4 @@
+import { readFileSync } from 'fs';
 import { describe, expect, it } from 'vitest';
 import {
   annotationBox, backTabFor, balanceLines, cellOutlines, centeredDomain, HIGHLIGHT_TAB, colorFor, computeIsoTreemap, edgeTarget, faceShade, fitLabel,
@@ -223,10 +224,12 @@ describe('computeIsoTreemap', () => {
     expect(area).toBeCloseTo(SIDE * SIDE);
   });
 
-  it('keeps categories in data order', () => {
-    const alpha = layout.leaves.find((leaf) => leaf.name === 'Alpha');
-    expect(alpha?.x0).toBe(0);
-    expect(alpha?.y0).toBe(0);
+  it('gives every top-level group a labeled side face', () => {
+    expect(layout.categoryLabels.map((label) => label.name).sort()).toEqual(['Big second', 'Small first']);
+    ['sports', 'technology', 'geography', 'stocks', 'music'].forEach((name) => {
+      const topic = JSON.parse(readFileSync(`public/data-literacy/assets/treemaps/${name}.json`, 'utf8'));
+      expect(computeIsoTreemap(topic).categoryLabels).toHaveLength(topic.categories.length);
+    });
   });
 
   it('colors leaves by change', () => {

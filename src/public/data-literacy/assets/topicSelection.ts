@@ -58,3 +58,28 @@ export function selectTopic(interest: TopicInterest, level: InterestLevel): Topi
   const ranked = rankTopics(interest);
   return level === 'high' ? ranked[0] : ranked[ranked.length - 1];
 }
+
+/** How each topic's data is described to participants, completing "the … data". */
+export const TOPIC_DATA_NAMES: Record<Topic, string> = {
+  sports: 'high school sports participation',
+  technology: 'social media use',
+  geography: 'world population',
+  stocks: 'stock market',
+  music: 'music industry revenue',
+};
+
+export interface SeenChart {
+  topic: Topic;
+  chart: 'treemap' | 'line';
+}
+
+/** The topic charts the participant has critiqued, in the order they saw them. */
+export function readSeenCharts(answers: ParticipantData['answers']): SeenChart[] {
+  return Object.values(answers ?? {})
+    .filter((stored) => TOPICS.includes(stored.answer?.shownTopic as Topic))
+    .sort((a, b) => (a.startTime ?? 0) - (b.startTime ?? 0))
+    .map((stored) => ({
+      topic: stored.answer.shownTopic as Topic,
+      chart: stored.answer.shownChart === 'line' ? 'line' : 'treemap',
+    }));
+}

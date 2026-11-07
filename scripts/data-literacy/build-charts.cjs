@@ -9,7 +9,6 @@ const outDir = path.join(__dirname, '../../public/data-literacy/assets/treemaps'
 const PINK = ['#f8dce9', '#f5bad5', '#f294bf', '#ee6aa6', '#ec4594', '#e8237f'];
 const YELLOW = ['#f7ee6d', '#fdd451', '#fcb441', '#f7962a', '#f37a22', '#f15d24'];
 const GREEN = ['#d8efe1', '#b2e0c9', '#8fd1b2', '#6cc6a2', '#40bb8f', '#1db884'];
-const TREND_NOTE = 'Dashed = trend of the last 8 data points; shaded band is a fixed-width illustration, not a statistical interval.';
 
 const round = (n, d = 1) => Math.round(n * 10 ** d) / 10 ** d;
 const pctChange = (now, then) => round(((now - then) / then) * 100);
@@ -57,7 +56,7 @@ function buildSports() {
     annotations: [
       { target: 'Competitive spirit', text: ['Competitive spirit (cheer)', 'doubled, to 260,000 athletes.'] },
       { target: 'Wrestling', text: ['Wrestling added 120,000', 'athletes, up 45%.'] },
-      { target: 'Swimming and diving', text: ['Swimming and diving', 'lost 18% of its athletes.'] },
+      { target: 'Dance', text: ['Dance lost a quarter', 'of its athletes.'] },
       { target: 'Basketball', text: ['Basketball has 74,000 fewer', 'players than ten years ago.'] },
     ],
     line: {
@@ -71,7 +70,6 @@ function buildSports() {
         series('Wrestling', bySport.Wrestling),
         series('Swimming and diving', bySport['Swimming and diving']),
       ],
-      note: [`Data: ${sources.sports.source}.`, TREND_NOTE],
     },
   };
 }
@@ -126,7 +124,6 @@ function buildTechnology() {
       yDomain: [0, 100],
       unit: '%',
       series: [series('Facebook'), series('Instagram'), series('TikTok'), series('X (Twitter)')],
-      note: [`Data: ${sources.technology.source}.`, TREND_NOTE],
     },
   };
 }
@@ -171,7 +168,7 @@ function buildGeography() {
     ],
     annotations: [
       { target: 'India', text: ['India passed China as the', 'most populous country,', 'with 1.45 billion people.'] },
-      { target: 'Italy', text: ['Italy, Japan and Poland', 'all lost population.'] },
+      { target: 'Ukraine', text: ['Ukraine lost 18% of its', 'population in ten years.'] },
       { target: 'Somalia', text: ['Somalia’s population grew', '43% in ten years.'] },
       { target: 'Venezuela', text: ['Venezuela shrank 6% as', 'millions emigrated.'] },
     ],
@@ -185,7 +182,6 @@ function buildGeography() {
         series('Japan', countries.JPN.population),
         series('Ukraine', countries.UKR.population),
       ],
-      note: [`Data: ${sources.geography.source}.`, TREND_NOTE],
     },
   };
 }
@@ -242,8 +238,8 @@ function buildStocks() {
     ],
     annotations: [
       { target: 'Micron', text: ['Micron’s share price nearly', 'tripled in a year.'] },
-      { target: 'Eli Lilly', text: ['Eli Lilly shares rose 26%,', 'making it a $1.2 trillion company.'] },
-      { target: 'Alphabet', text: ['Alphabet is worth $3.5 trillion', 'but its shares fell 11%.'] },
+      { target: 'ExxonMobil', text: ['ExxonMobil shares rose', '43% over the past year.'] },
+      { target: 'Tesla', text: ['Tesla shares fell 17%', 'over the past year.'] },
       { target: 'Netflix', text: ['Netflix is down 41%', 'over the past year.'] },
     ],
     line: {
@@ -256,7 +252,6 @@ function buildStocks() {
         yearEndSeries('Netflix', companies.NFLX.monthly),
         yearEndSeries('Intel', companies.INTC.monthly),
       ],
-      note: [`Data: Yahoo Finance, year-end closing prices adjusted for splits; latest point is ${asOf}.`, TREND_NOTE],
     },
   };
 }
@@ -311,7 +306,6 @@ function buildMusic() {
         series('Vinyl records', ['Vinyl (LP/EP)']),
         series('Downloads', ['Download singles', 'Download albums', 'Ringtones', 'Other digital']),
       ],
-      note: [`Data: ${sources.music.source}.`, TREND_NOTE],
     },
   };
 }

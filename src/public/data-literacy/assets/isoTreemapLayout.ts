@@ -130,6 +130,8 @@ interface FitOptions {
   charWidth?: number;
   lineHeight?: number;
   maxLines?: number;
+  /** Allow text to run along the cell's height. */
+  allowVertical?: boolean;
 }
 
 /** Splits words into at most `count` lines, minimizing the longest line. */
@@ -150,11 +152,11 @@ export function balanceLines(words: string[], count: number): string[] {
 
 /** Finds the largest font size, orientation and line wrapping that fits text in a width x height cell. */
 export function fitLabel(text: string, width: number, height: number, {
-  minFontSize = 11, maxFontSize = 56, charWidth = 0.56, lineHeight = 1.1, maxLines = 3,
+  minFontSize = 11, maxFontSize = 56, charWidth = 0.56, lineHeight = 1.1, maxLines = 3, allowVertical = true,
 }: FitOptions = {}): LabelFit | null {
   const words = text.split(/\s+/).filter(Boolean);
   let best: LabelFit | null = null;
-  for (let orientation = 0; orientation < 2; orientation += 1) {
+  for (let orientation = 0; orientation < (allowVertical ? 2 : 1); orientation += 1) {
     const vertical = orientation === 1;
     const along = (vertical ? height : width) * 0.88;
     const across = (vertical ? width : height) * 0.8;
@@ -592,13 +594,48 @@ export function backTabFor({
     };
 }
 
+/**
+ * Splits the slab so every top-level group reaches a visible side face and can be labeled there:
+ * the largest group runs the full depth along the left face, and the rest stack beside it, each
+ * reaching the right face. Everything below the top level is squarified as usual.
+ */
+export function frontFacingTile(
+  parent: d3.HierarchyRectangularNode<IsoTreemapNode>,
+  x0: number,
+  y0: number,
+  x1: number,
+  y1: number,
+) {
+  const children = parent.children ?? [];
+  if (parent.depth !== 0 || children.length < 2) {
+    d3.treemapSquarify(parent, x0, y0, x1, y1);
+    return;
+  }
+  const total = parent.value || 1;
+  const largest = children.reduce((a, b) => ((b.value ?? 0) > (a.value ?? 0) ? b : a));
+  const split = x0 + ((x1 - x0) * (largest.value ?? 0)) / total;
+  Object.assign(largest, {
+    x0, y0, x1: split, y1,
+  });
+  const rest = children.filter((child) => child !== largest);
+  const restTotal = d3.sum(rest, (child) => child.value ?? 0) || 1;
+  let y = y0;
+  rest.forEach((child, i) => {
+    const next = i === rest.length - 1 ? y1 : y + ((y1 - y0) * (child.value ?? 0)) / restTotal;
+    Object.assign(child, {
+      x0: split, y0: y, x1, y1: next,
+    });
+    y = next;
+  });
+}
+
 export function computeIsoTreemap(data: IsoTreemapData): IsoTreemapLayout {
   const rootDatum: IsoTreemapBranch = { name: 'root', children: data.categories };
   const root = d3.hierarchy<IsoTreemapNode>(rootDatum, (d) => (isLeaf(d) ? undefined : d.children))
     .sum((d) => (isLeaf(d) ? d.value : 0))
     // Categories keep their data order so the dataset controls where each block sits on the slab.
     .sort((a, b) => (a.depth === 1 ? 0 : (b.value ?? 0) - (a.value ?? 0)));
-  const treemap = d3.treemap<IsoTreemapNode>().size([SIDE, SIDE]).tile(d3.treemapSquarify)(root);
+  const treemap = d3.treemap<IsoTreemapNode>().size([SIDE, SIDE]).tile(frontFacingTile)(root);
 
   const highlights: Highlight[] = treemap.descendants()
     .filter((node) => !isLeaf(node.data) && (node.data as IsoTreemapBranch).highlight)
@@ -652,9 +689,9 @@ export function computeIsoTreemap(data: IsoTreemapData): IsoTreemapLayout {
     const extent = sideExtent(node);
     if (!extent) return [];
     const fit = fitLabel((category.label ?? category.name).toUpperCase(), extent.end - extent.start, SLAB, {
-      minFontSize: 14, maxFontSize: 42, charWidth: 0.78, lineHeight: 1.15, maxLines: 2,
+      minFontSize: 14, maxFontSize: 42, charWidth: 0.78, lineHeight: 1.15, maxLines: 2, allowVertical: false,
     });
-    return fit && !fit.vertical ? [{ ...extent, name: category.name, fit }] : [];
+    return fit ? [{ ...extent, name: category.name, fit }] : [];
   });
 
   const nodesByName = new Map<string, Rect>();

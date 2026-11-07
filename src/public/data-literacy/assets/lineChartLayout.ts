@@ -22,7 +22,7 @@ export interface LineChartData {
 }
 
 export const LINE_WIDTH = 1900;
-export const LINE_HEIGHT = 1240;
+export const LINE_HEIGHT = 1160;
 export const PLOT = {
   left: 180, right: 1870, top: 90, bottom: 1015,
 };
@@ -93,12 +93,23 @@ export function projectTrend(
   });
 }
 
-/** A log domain padded a little beyond the data, so no whole empty decade is left at either end. */
+/**
+ * A log domain padded a little beyond the data, so no whole empty decade is left at either end, then
+ * widened to the nearest powers of ten until it holds at least three, so the axis reads as logarithmic.
+ */
 function niceLogDomain(values: number[]): [number, number] {
-  const lo = Math.log10(d3.min(values) ?? 1);
-  const hi = Math.log10(d3.max(values) ?? 10);
+  let lo = Math.log10(d3.min(values) ?? 1);
+  let hi = Math.log10(d3.max(values) ?? 10);
   const pad = Math.max(0.12, (hi - lo) * 0.06);
-  return [10 ** (lo - pad), 10 ** (hi + pad)];
+  lo -= pad;
+  hi += pad;
+  while (Math.floor(hi) - Math.ceil(lo) + 1 < 3) {
+    const below = lo - Math.floor(lo);
+    const above = Math.ceil(hi) - hi;
+    if (below <= above || above === 0) lo = Math.floor(lo === Math.floor(lo) ? lo - 1 : lo);
+    else hi = Math.ceil(hi);
+  }
+  return [10 ** lo, 10 ** hi];
 }
 
 function chooseXTicks(domain: [number, number]): number[] {
@@ -247,13 +258,7 @@ export function computeLineChart(data: LineChartData): LineChartLayout {
 
   const powers = d3.range(Math.ceil(Math.log10(yDomain[0])), Math.floor(Math.log10(yDomain[1])) + 1);
   const yTicks: Tick[] = log
-    ? (powers.length >= 3
-      ? powers.map((exponent) => ({ value: 10 ** exponent, position: y(10 ** exponent), exponent }))
-      // Narrow log ranges get 1-2-5 steps so the axis still has several labelled ticks.
-      : d3.range(Math.floor(Math.log10(yDomain[0])), Math.ceil(Math.log10(yDomain[1])) + 1)
-        .flatMap((exponent) => [1, 2, 5].map((m) => m * 10 ** exponent))
-        .filter((value) => value >= yDomain[0] && value <= yDomain[1])
-        .map((value) => ({ value, position: y(value), text: d3.format('~s')(value).replace('G', 'B') })))
+    ? powers.map((exponent) => ({ value: 10 ** exponent, position: y(10 ** exponent), exponent }))
     : y.ticks(6).map((value) => ({ value, position: y(value), text: `${value}${data.unit ?? ''}` }));
   const xTicks: Tick[] = chooseXTicks(x.domain() as [number, number])
     .map((value) => ({ value, position: x(value), text: String(value) }));

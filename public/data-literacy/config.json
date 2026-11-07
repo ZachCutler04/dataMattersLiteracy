@@ -74,7 +74,7 @@
           "type": "ranking-sublist",
           "required": true,
           "numItems": 5,
-          "prompt": "Rank these topics from **most interesting** (top) to **least interesting** (bottom). Drag all five into your ranking.",
+          "prompt": "Rank these topics by how interested **you personally** are in them, from **most interesting to you** (top) to **least interesting to you** (bottom). Drag all five into your ranking.",
           "options": [
             {
               "label": "High school sports: which sports students play",
@@ -199,6 +199,14 @@
           "requiredValue": "Yes"
         }
       ]
+    },
+    "topicFollowUp": {
+      "type": "react-component",
+      "recordAudio": false,
+      "description": "Asks how interested the participant was in each of the two datasets they critiqued, naming each one.",
+      "path": "data-literacy/assets/TopicFollowUp.tsx",
+      "parameters": {},
+      "response": []
     }
   },
   "sequence": {
@@ -236,7 +244,8 @@
           }
         ],
         "order": "fixed"
-      }
+      },
+      "topicFollowUp"
     ]
   }
 }
