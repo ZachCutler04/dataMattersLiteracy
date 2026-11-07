@@ -4,71 +4,66 @@ import {
   rankTopics, readTopicInterest, selectTopic, TOPICS,
 } from '../topicSelection';
 
-function answersWith(answer: Record<string, string>, startTime = 1234): ParticipantData['answers'] {
+function answersWith(topicRanking: unknown, startTime = 1234): ParticipantData['answers'] {
   return {
     introduction_0: { componentName: 'introduction', answer: { prolificId: 'abc' }, startTime: 1 },
-    topicInterest_2: { componentName: 'topicInterest', answer, startTime },
+    topicInterest_2: { componentName: 'topicInterest', answer: { topicRanking }, startTime },
   } as unknown as ParticipantData['answers'];
 }
 
-const ratings = {
-  interestSports: '7',
-  interestTechnology: '3',
-  interestGeography: '5',
-  interestStocks: '1',
-  interestMusic: '4',
+// The ranking widget stores each option's 0-based position as a string.
+const fullRanking = {
+  sports: '0', geography: '1', music: '2', technology: '3', stocks: '4',
 };
 
 describe('readTopicInterest', () => {
-  it('reads Likert ratings from the named questionnaire', () => {
-    expect(readTopicInterest(answersWith(ratings), 'topicInterest')).toEqual({
-      ratings: {
-        sports: 7, technology: 3, geography: 5, stocks: 1, music: 4,
+  it('reads the ranking as 1-based ranks', () => {
+    expect(readTopicInterest(answersWith(fullRanking), 'topicInterest')).toEqual({
+      ranks: {
+        sports: 1, geography: 2, music: 3, technology: 4, stocks: 5,
       },
       seed: 1234,
     });
   });
 
-  it('returns no ratings when the questionnaire has not been answered', () => {
-    expect(readTopicInterest({}, 'topicInterest')).toEqual({ ratings: {}, seed: 0 });
-    expect(readTopicInterest(answersWith({ interestSports: '' }), 'topicInterest').ratings).toEqual({});
+  it('returns no ranks when the ranking is missing or empty', () => {
+    expect(readTopicInterest({}, 'topicInterest')).toEqual({ ranks: {}, seed: 0 });
+    expect(readTopicInterest(answersWith([]), 'topicInterest').ranks).toEqual({});
+    expect(readTopicInterest(answersWith({}), 'topicInterest').ranks).toEqual({});
   });
 });
 
 describe('selectTopic', () => {
-  it('picks the highest and lowest rated topics', () => {
-    const interest = readTopicInterest(answersWith(ratings), 'topicInterest');
+  it('picks the top- and bottom-ranked topics', () => {
+    const interest = readTopicInterest(answersWith(fullRanking), 'topicInterest');
     expect(selectTopic(interest, 'high')).toBe('sports');
     expect(selectTopic(interest, 'low')).toBe('stocks');
   });
 
-  it('breaks ties the same way every time for a participant', () => {
-    const tied = readTopicInterest(answersWith({ ...ratings, interestGeography: '7' }), 'topicInterest');
-    const first = selectTopic(tied, 'high');
-    expect(['sports', 'geography']).toContain(first);
-    expect(selectTopic(tied, 'high')).toBe(first);
+  it('puts unranked topics last, choosing among them the same way every time', () => {
+    const partial = readTopicInterest(answersWith({ music: '0', sports: '1' }), 'topicInterest');
+    expect(selectTopic(partial, 'high')).toBe('music');
+    const low = selectTopic(partial, 'low');
+    expect(['technology', 'geography', 'stocks']).toContain(low);
+    expect(selectTopic(partial, 'low')).toBe(low);
   });
 
-  it('spreads ties across participants', () => {
-    const picks = new Set(Array.from({ length: 50 }, (_, seed) => selectTopic({ ratings: {}, seed }, 'high')));
+  it('spreads unranked topics across participants', () => {
+    const picks = new Set(Array.from({ length: 50 }, (_, seed) => selectTopic({ ranks: {}, seed }, 'low')));
     expect(picks.size).toBeGreaterThan(1);
   });
 
-  it('never shows the same topic for high and low, even when all ratings match', () => {
+  it('never shows the same topic for high and low', () => {
     Array.from({ length: 50 }, (_, seed) => seed).forEach((seed) => {
-      const interest = {
-        ratings: {
-          sports: 4, technology: 4, geography: 4, stocks: 4, music: 4,
-        },
-        seed,
-      };
-      expect(selectTopic(interest, 'high')).not.toBe(selectTopic(interest, 'low'));
+      const interest = { ranks: { geography: 1 }, seed };
+      expect(selectTopic(interest, 'high')).toBe('geography');
+      expect(selectTopic(interest, 'low')).not.toBe('geography');
     });
   });
 });
 
 describe('rankTopics', () => {
   it('returns every topic once', () => {
-    expect([...rankTopics({ ratings: {}, seed: 99 })].sort()).toEqual([...TOPICS].sort());
+    expect([...rankTopics({ ranks: {}, seed: 99 })].sort()).toEqual([...TOPICS].sort());
   });
 });

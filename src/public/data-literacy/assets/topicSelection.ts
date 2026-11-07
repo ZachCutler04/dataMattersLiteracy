@@ -4,30 +4,29 @@ export const TOPICS = ['sports', 'technology', 'geography', 'stocks', 'music'] a
 export type Topic = typeof TOPICS[number];
 export type InterestLevel = 'high' | 'low';
 
-/** Response ids on the topic interest questionnaire, by topic. */
-export const INTEREST_RESPONSE_IDS: Record<Topic, string> = {
-  sports: 'interestSports',
-  technology: 'interestTechnology',
-  geography: 'interestGeography',
-  stocks: 'interestStocks',
-  music: 'interestMusic',
-};
+/** Response id of the ranking widget on the topic interest questionnaire. Its option values are the topics. */
+export const RANKING_RESPONSE_ID = 'topicRanking';
 
 export interface TopicInterest {
-  ratings: Partial<Record<Topic, number>>;
-  /** Stable per participant, used to break ties between equal ratings. */
+  /** 1 for the participant's top-ranked topic; topics they left unranked are missing. */
+  ranks: Partial<Record<Topic, number>>;
+  /** Stable per participant, used to order topics the participant left unranked. */
   seed: number;
 }
 
-/** Reads the participant's Likert ratings from the answers of the given questionnaire component. */
+/** Reads the participant's topic ranking from the answers of the given questionnaire component. */
 export function readTopicInterest(answers: ParticipantData['answers'], componentName: string): TopicInterest {
   const stored = Object.values(answers ?? {}).find((answer) => answer.componentName === componentName);
-  const ratings: Partial<Record<Topic, number>> = {};
-  TOPICS.forEach((topic) => {
-    const rating = Number(stored?.answer?.[INTEREST_RESPONSE_IDS[topic]]);
-    if (Number.isFinite(rating) && rating > 0) ratings[topic] = rating;
-  });
-  return { ratings, seed: stored?.startTime ?? 0 };
+  const ranking = stored?.answer?.[RANKING_RESPONSE_ID];
+  const ranks: Partial<Record<Topic, number>> = {};
+  if (ranking && typeof ranking === 'object' && !Array.isArray(ranking)) {
+    // The ranking widget stores each ranked option's 0-based position as a string.
+    TOPICS.forEach((topic) => {
+      const position = Number((ranking as Record<string, unknown>)[topic]);
+      if (Number.isInteger(position) && position >= 0) ranks[topic] = position + 1;
+    });
+  }
+  return { ranks, seed: stored?.startTime ?? 0 };
 }
 
 // mulberry32: small deterministic PRNG so tie-breaking is repeatable for a participant.
@@ -42,19 +41,19 @@ function seededRandom(seed: number) {
   };
 }
 
-/** Topics ordered from most to least interesting, with ties in a seeded random order. */
-export function rankTopics({ ratings, seed }: TopicInterest): Topic[] {
+/** Topics ordered from most to least interesting; unranked topics come last in a seeded random order. */
+export function rankTopics({ ranks, seed }: TopicInterest): Topic[] {
   const random = seededRandom(seed);
   const shuffled = [...TOPICS];
   for (let i = shuffled.length - 1; i > 0; i -= 1) {
     const j = Math.floor(random() * (i + 1));
     [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
   }
-  // Array.prototype.sort is stable, so equal ratings keep their shuffled order.
-  return shuffled.sort((a, b) => (ratings[b] ?? 0) - (ratings[a] ?? 0));
+  // Array.prototype.sort is stable, so unranked topics keep their shuffled order.
+  return shuffled.sort((a, b) => (ranks[a] ?? Infinity) - (ranks[b] ?? Infinity));
 }
 
-/** The highest-rated topic for "high" and the lowest-rated for "low"; never the same topic. */
+/** The top-ranked topic for "high" and the bottom-ranked for "low"; never the same topic. */
 export function selectTopic(interest: TopicInterest, level: InterestLevel): Topic {
   const ranked = rankTopics(interest);
   return level === 'high' ? ranked[0] : ranked[ranked.length - 1];

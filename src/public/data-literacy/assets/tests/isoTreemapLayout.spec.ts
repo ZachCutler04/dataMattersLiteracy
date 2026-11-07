@@ -1,4 +1,3 @@
-import { readFileSync } from 'fs';
 import { describe, expect, it } from 'vitest';
 import {
   annotationBox, backTabFor, balanceLines, cellOutlines, centeredDomain, HIGHLIGHT_TAB, colorFor, computeIsoTreemap, edgeTarget, faceShade, fitLabel,
@@ -242,15 +241,26 @@ describe('computeIsoTreemap', () => {
   });
 
   it('hangs back-of-slab highlight labels outside the slab, off the cells', () => {
-    // East Asia sits at the back of the geography slab, away from both side faces.
-    const geography = JSON.parse(readFileSync('public/data-literacy/assets/treemaps/geography.json', 'utf8'));
-    geography.categories[0].children.find((child: { name: string }) => child.name === 'East Asia').highlight = true;
-    const layout = computeIsoTreemap(geography);
+    const layout = computeIsoTreemap({
+      ...data,
+      categories: [{
+        name: 'Only',
+        palette,
+        children: [{
+          name: 'Group', highlight: true, children: [{ name: 'One', value: 1, change: 0 }],
+        }],
+      }],
+      annotations: [],
+    });
     const [highlight] = layout.highlights;
-    expect(highlight.side).toBeNull();
-    const tab = highlight.backTab as NonNullable<typeof highlight.backTab>;
-    // Entirely beyond a back edge, so it covers no part of the treemap square.
-    expect(tab.y1 <= 0 || tab.x1 <= 0).toBe(true);
+    // A lone group fills the slab, so it reaches a side face and keeps the front tab instead.
+    expect(highlight.side).not.toBeNull();
+    expect(highlight.backTab).toBeNull();
+    // A group that touches only a back edge gets its tab entirely beyond that edge.
+    const tab = backTabFor({
+      x0: 300, y0: 0, x1: 700, y1: 400,
+    }) as NonNullable<ReturnType<typeof backTabFor>>;
+    expect(tab.y1).toBeLessThanOrEqual(0);
   });
 
   it('only puts a back tab where a group touches a back edge', () => {

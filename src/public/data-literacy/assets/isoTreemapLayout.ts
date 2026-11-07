@@ -1,4 +1,5 @@
 import * as d3 from 'd3';
+import type { LineChartData } from './lineChartLayout';
 
 export interface IsoTreemapLeaf {
   name: string;
@@ -50,6 +51,8 @@ export interface IsoTreemapData {
   source?: string;
   categories: IsoTreemapCategory[];
   annotations?: IsoTreemapAnnotation[];
+  /** The matching line chart for the same topic, drawn by LineChart.tsx. */
+  line?: LineChartData;
 }
 
 export type Point = [number, number];

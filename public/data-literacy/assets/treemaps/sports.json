@@ -1,12 +1,12 @@
 {
   "title": "High School Sports",
-  "legendTitle": "Change in participants (2023–24 to 2024–25)",
+  "legendTitle": "Change in participants (2015–16 to 2025–26)",
   "colorDomain": [
-    -9,
-    9
+    -60,
+    60
   ],
   "unit": "%",
-  "source": "NFHS High School Athletics Participation Survey, 2023-24 and 2024-25. Value = combined boys and girls participants in 2024-25.",
+  "source": "NFHS High School Athletics Participation Surveys, 2015-16 through 2025-26 (no survey in 2019-20 or 2020-21). Value = boys and girls participants in 2025-26.",
   "categories": [
     {
       "name": "Team sports",
@@ -20,84 +20,74 @@
       ],
       "children": [
         {
-          "name": "Football",
-          "children": [
-            {
-              "name": "11-player football",
-              "value": 1034425,
-              "change": -0.11
-            },
-            {
-              "name": "Flag football",
-              "value": 69672,
-              "change": 58.51
-            },
-            {
-              "name": "8-player football",
-              "value": 22093,
-              "change": -16.38
-            },
-            {
-              "name": "6-player",
-              "value": 6803,
-              "change": -0.26
-            },
-            {
-              "name": "9-player",
-              "value": 6333,
-              "change": 7.19
-            }
-          ]
+          "name": "11-player football",
+          "value": 1047949,
+          "change": -3.2
+        },
+        {
+          "name": "Flag football",
+          "value": 103573,
+          "change": 756.5
+        },
+        {
+          "name": "8-player football",
+          "value": 21090,
+          "change": 9.2
+        },
+        {
+          "name": "6-player",
+          "value": 6068,
+          "change": 36.6
+        },
+        {
+          "name": "9-player",
+          "value": 6134,
+          "change": 14.3
         },
         {
           "name": "Basketball",
-          "value": 896944,
-          "change": -0.78
+          "value": 902265,
+          "change": -7.5
         },
         {
           "name": "Soccer",
-          "value": 877956,
-          "change": 3.12
+          "value": 878183,
+          "change": 6.9
         },
         {
           "name": "Volleyball",
-          "value": 588771,
-          "change": 4.32
+          "value": 600451,
+          "change": 22.1
         },
         {
           "name": "Baseball",
-          "value": 473979,
-          "change": 0.19
+          "value": 468938,
+          "change": -4.3
         },
         {
           "name": "Fast-pitch softball",
-          "value": 338445,
-          "change": -2.07
+          "value": 331493,
+          "change": -10
         },
         {
           "name": "Lacrosse",
-          "value": 212988,
-          "change": -1.49
+          "value": 210813,
+          "change": 6.7
         },
         {
           "name": "Field hockey",
-          "value": 50856,
-          "change": -2
+          "value": 49330,
+          "change": -17.7
         },
         {
           "name": "Ice hockey",
-          "value": 41842,
-          "change": -0.42
+          "value": 38974,
+          "change": -12.7
         },
         {
           "name": "Water polo",
-          "value": 39779,
-          "change": -3.18
-        },
-        {
-          "name": "Beach volleyball",
-          "value": 12481,
-          "change": 7.73
+          "value": 40144,
+          "change": -4.6
         }
       ]
     },
@@ -114,73 +104,73 @@
       "children": [
         {
           "name": "Outdoor track and field",
-          "value": 1158043,
-          "change": 2.36
+          "value": 1157793,
+          "change": 7.5
         },
         {
           "name": "Cross country",
-          "value": 433298,
-          "change": 0.22
+          "value": 439884,
+          "change": -8.4
         },
         {
           "name": "Wrestling",
-          "value": 374278,
-          "change": 5.1
+          "value": 384030,
+          "change": 45.4
         },
         {
           "name": "Tennis",
-          "value": 363388,
-          "change": 2.77
+          "value": 365143,
+          "change": 7.1
         },
         {
           "name": "Swimming and diving",
-          "value": 257405,
-          "change": 0.95
+          "value": 246116,
+          "change": -18
         },
         {
           "name": "Golf",
-          "value": 247742,
-          "change": 4.09
+          "value": 266523,
+          "change": 20.4
         },
         {
           "name": "Indoor track and field",
-          "value": 160377,
-          "change": 5.71
+          "value": 167221,
+          "change": 14.6
         },
         {
           "name": "Bowling",
-          "value": 59833,
-          "change": -2.05
+          "value": 63161,
+          "change": 13.9
         },
         {
           "name": "Weightlifting",
-          "value": 33355,
-          "change": 1.5
+          "value": 32880,
+          "change": 12.6
         },
         {
           "name": "Badminton",
-          "value": 19563,
-          "change": 2.12
+          "value": 20042,
+          "change": 13.6
         },
         {
           "name": "Gymnastics",
-          "value": 15131,
-          "change": -0.43
+          "value": 14828,
+          "change": -24.4
         },
         {
           "name": "Archery",
-          "value": 13018,
-          "change": 4.51
+          "value": 14619,
+          "change": 68.7
         },
         {
           "name": "Alpine skiing",
-          "value": 9411,
-          "change": -5.84
+          "value": 9202,
+          "change": -1.7
         }
       ]
     },
     {
-      "name": "Spirit, esports and other",
+      "name": "Spirit and dance",
       "palette": [
         "#d8efe1",
         "#b2e0c9",
@@ -192,64 +182,221 @@
       "children": [
         {
           "name": "Competitive spirit",
-          "value": 210509,
-          "change": 13.09
-        },
-        {
-          "name": "Unified Sports",
-          "value": 70006,
-          "change": 35.93
+          "value": 259748,
+          "change": 101.6
         },
         {
           "name": "Dance",
-          "value": 32202,
-          "change": 42.38
-        },
-        {
-          "name": "Esports",
-          "value": 30440,
-          "change": 12.53
-        },
-        {
-          "name": "Bass fishing",
-          "value": 6968,
-          "change": 4.77
+          "value": 18041,
+          "change": -25.9
         }
       ]
     }
   ],
   "annotations": [
     {
-      "target": "Basketball",
+      "target": "Competitive spirit",
       "text": [
-        "Basketball still draws nearly",
-        "900,000 athletes but lost",
-        "7,000 in a year."
+        "Competitive spirit (cheer)",
+        "doubled, to 260,000 athletes."
       ]
     },
     {
       "target": "Wrestling",
       "text": [
-        "Wrestling hit a record 374,000",
-        "athletes, with girls’ wrestling",
-        "up 15% in one year."
+        "Wrestling added 120,000",
+        "athletes, up 45%."
       ]
     },
     {
-      "target": "Esports",
+      "target": "Swimming and diving",
       "text": [
-        "Esports grew 13%, to more",
-        "than 30,000 students."
+        "Swimming and diving",
+        "lost 18% of its athletes."
       ]
     },
     {
-      "target": "Flag football",
+      "target": "Basketball",
       "text": [
-        "Flag football grew 59%",
-        "in a single year as",
-        "girls’ programs spread",
-        "to more states."
+        "Basketball has 74,000 fewer",
+        "players than ten years ago."
       ]
     }
-  ]
+  ],
+  "line": {
+    "title": "High school sports participation",
+    "yLabel": "Participants",
+    "xLabel": "School year (fall)",
+    "scale": "log",
+    "series": [
+      {
+        "name": "All sports",
+        "points": [
+          [
+            2015,
+            7866265
+          ],
+          [
+            2016,
+            7963535
+          ],
+          [
+            2017,
+            7980886
+          ],
+          [
+            2018,
+            7937491
+          ],
+          [
+            2021,
+            7618054
+          ],
+          [
+            2022,
+            7851833
+          ],
+          [
+            2023,
+            8062302
+          ],
+          [
+            2024,
+            8266244
+          ],
+          [
+            2025,
+            8415684
+          ]
+        ]
+      },
+      {
+        "name": "Flag football",
+        "points": [
+          [
+            2015,
+            12093
+          ],
+          [
+            2016,
+            12464
+          ],
+          [
+            2017,
+            12151
+          ],
+          [
+            2018,
+            12154
+          ],
+          [
+            2021,
+            16401
+          ],
+          [
+            2022,
+            21980
+          ],
+          [
+            2023,
+            43954
+          ],
+          [
+            2024,
+            69672
+          ],
+          [
+            2025,
+            103573
+          ]
+        ]
+      },
+      {
+        "name": "Wrestling",
+        "points": [
+          [
+            2015,
+            264149
+          ],
+          [
+            2016,
+            259391
+          ],
+          [
+            2017,
+            262126
+          ],
+          [
+            2018,
+            268565
+          ],
+          [
+            2021,
+            263528
+          ],
+          [
+            2022,
+            309447
+          ],
+          [
+            2023,
+            356131
+          ],
+          [
+            2024,
+            374278
+          ],
+          [
+            2025,
+            384030
+          ]
+        ]
+      },
+      {
+        "name": "Swimming and diving",
+        "points": [
+          [
+            2015,
+            300217
+          ],
+          [
+            2016,
+            309161
+          ],
+          [
+            2017,
+            314529
+          ],
+          [
+            2018,
+            309726
+          ],
+          [
+            2021,
+            272959
+          ],
+          [
+            2022,
+            257452
+          ],
+          [
+            2023,
+            254973
+          ],
+          [
+            2024,
+            257405
+          ],
+          [
+            2025,
+            246116
+          ]
+        ]
+      }
+    ],
+    "note": [
+      "Data: NFHS High School Athletics Participation Surveys, 2015-16 through 2025-26 (no survey in 2019-20 or 2020-21).",
+      "Dashed = trend of the last 8 data points; shaded band is a fixed-width illustration, not a statistical interval."
+    ]
+  }
 }
